@@ -8,13 +8,13 @@ IP ranges and will tweet when it notices one.  It was inspired by [@parliamented
 To run anon you will need to:
 
 1. install Node
-1. git clone https://github.com/edsu/anon.git
-1. cd anon
-1. npm install 
-1. cp config.json.template config.jdon
+1. `git clone https://github.com/edsu/anon.git`
+1. `cd anon`
+1. `npm install` 
+1. `cp config.json.template config.json`
 1. add twitter credentials for your bot to config.json
 1. add ip ranges/names to config.json
-1. coffee anon.coffee
+1. `coffee anon.coffee`
 1. have some :coffee: and wait
 
 ## Develop
