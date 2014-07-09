@@ -1,6 +1,6 @@
 # congress-edits
 
-[![Build Status](https://secure.travis-ci.org/edsu/congressedits.png)](http://travis-ci.org/edsu/congressedits)
+[![Build Status](https://secure.travis-ci.org/edsu/congress-edits.png)](http://travis-ci.org/edsu/congress-edits)
 
 This little coffee script will watch Wikipedia for edits from US Congress IP ranges 
 and will tweet them when it notices one. It was inspired by
