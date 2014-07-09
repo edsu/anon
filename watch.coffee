@@ -26,8 +26,8 @@ tweet = (edit) ->
       console.log err
 
 # listen for edits
-wikipedia.listen (change) ->
-  if change.anonymous
+wikipedia.listen (edit) ->
+  if edit.anonymous
     for range in ipRanges
-      if change.user.match(range)
-        tweet(change)
+      if edit.user.match range
+        tweet edit
