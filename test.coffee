@@ -36,6 +36,6 @@ describe 'anon', ->
     it 'ip in second range', ->
       assert.isTrue isIpInAnyRange '2.2.2.1', [r1, r2]
 
-    it 'ip not in any ranges', -
+    it 'ip not in any ranges', ->
       assert.isFalse isIpInAnyRange '1.1.1.6', [r1, r2]
 

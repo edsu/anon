@@ -12,6 +12,6 @@
       "chai": "latest"
     },
     "scripts": {
-        "test": "mocha --colors --compilers coffee:coffee-script/register test.coffee"
+        "test": "mocha --colors --reporter nyan --compilers coffee:coffee-script/register test.coffee"
     }
 }
