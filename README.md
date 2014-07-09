@@ -15,8 +15,14 @@ To run it you will need to:
 1. npm install 
 1. cp config.json.template config.jdon
 1. add twitter credentials
-1. coffee watch.coffee
+1. coffee congressedits.coffee
 1. have some :coffee: and wait
+
+## Develop
+
+There is a small test suite for testing ip range logic:
+
+    npm test
 
 ## License: 
 

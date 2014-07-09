@@ -4,8 +4,14 @@
     "private": true,
     "dependencies": {
       "twit": "latest",
-      "express": "latest",
       "wikichanges": "latest",
       "coffee-script": "latest"
+    },
+    "devDependencies": {
+      "mocha": "latest",
+      "chai": "latest"
+    },
+    "scripts": {
+        "test": "mocha --colors --compilers coffee:coffee-script/register test.coffee"
     }
 }
