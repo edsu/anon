@@ -2,7 +2,10 @@
 
 This little coffee script will watch Wikipedia for edits from US Congress IP ranges 
 and will tweet them when it notices one. It was inspired by
-[parliamentedits](https://twitter.com/parliamentedits).
+[parliamentedits](https://twitter.com/parliamentedits). You can read more about
+the significance of some of these edits in the past 
+[here](https://en.wikipedia.org/wiki/U.S._Congressional_staff_edits_to_Wikipedia) 
+and [here](https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits).
 
 To run it you will need to:
 
