@@ -11,7 +11,7 @@ twitter = new Twit config
 # ranges from https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits
 ipRanges = [
   # House of Representatives
-  /143\.228\.\d+\.\d+/,
+  /143\.228\.\d+\.\d+/
   /143\.231\.\d+\.\d+/
   # Senate
   /156\.33\.\d+\.\d+/
