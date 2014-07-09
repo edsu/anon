@@ -1,0 +1,11 @@
+{
+    "name": "congressedits",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+      "twit": "latest",
+      "express": "latest",
+      "wikichanges": "latest",
+      "coffee-script": "latest"
+    }
+}
