@@ -10,21 +10,17 @@ twitter = new Twit config
 
 # ranges from https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits
 ipRanges = [
-
   # House of Representatives
   /143\.228\.\d+\.\d+/,
   /143\.231\.\d+\.\d+/
-
   # Senate
   /156\.33\.\d+\.\d+/
-
-  # Verizon for testing from home
-  /96\.241\.\d+\.\d+/
 ]
 
 # send out a tweet
 tweet = (edit) ->
   text = edit.page + ' Wikipedia article edited anonymously by Congress ' + edit.url
+  console.log text
   twitter.post 'statuses/update', status: text, (err, data, response) ->
     if err
       console.log err
