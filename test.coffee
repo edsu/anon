@@ -1,11 +1,11 @@
+anon = require './anon'
 assert = require('chai').assert
-congressEdits = require './congressedits'
 
-compareIps = congressEdits.compareIps
-isIpInRange = congressEdits.isIpInRange
-isIpInAnyRange = congressEdits.isIpInAnyRange
+compareIps = anon.compareIps
+isIpInRange = anon.isIpInRange
+isIpInAnyRange = anon.isIpInAnyRange
 
-describe 'congressedits', ->
+describe 'anon', ->
 
   describe "compareIps", ->
     it 'equal', ->
