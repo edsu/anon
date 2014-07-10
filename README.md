@@ -27,4 +27,4 @@ There is a small test suite for testing ip range logic:
 
 ## License: 
 
-* cc0
+* [CC0](LICENSE) public domain dedication
