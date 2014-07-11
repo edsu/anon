@@ -3,7 +3,7 @@
   "consumer_key": "",
   "consumer_secret": "",
   "access_token": "",
-  "access_token_secret": ""
+  "access_token_secret": "",
   "ranges": {
     "US House of Representatives": [
       ["143.231.0.0", "143.231.255.255"],
@@ -15,7 +15,7 @@
     ],
     "US Senate": [
       ["156.33.0.0", "156.33.255.255"]
-    ],
+    ]
   }
 }
 
