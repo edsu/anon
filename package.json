@@ -5,7 +5,8 @@
     "dependencies": {
       "twit": "latest",
       "wikichanges": "latest",
-      "coffee-script": "latest"
+      "coffee-script": "latest",
+      "minimist": "latest"
     },
     "devDependencies": {
       "mocha": "latest",

@@ -1,5 +1,6 @@
 Twit = require 'twit'
 wikichanges = require 'wikichanges'
+argv = require('minimist')(process.argv.slice(2), default: { config: './config.json'});
 
 ipToQuad = (ip) ->
   return (parseInt(s) for s in ip.split('.'))
@@ -25,7 +26,7 @@ isIpInAnyRange = (ip, blocks) ->
   return false
 
 main = ->
-  config = require './config.json'
+  config = require(argv.config)
   twitter = new Twit config
   wikipedia = new wikichanges.WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
