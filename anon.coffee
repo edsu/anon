@@ -1,5 +1,6 @@
 Twit = require 'twit'
 wikichanges = require 'wikichanges'
+Netmask = require('netmask').Netmask
 
 ipToQuad = (ip) ->
   return (parseInt(s) for s in ip.split('.'))
@@ -16,7 +17,10 @@ compareIps = (ip1, ip2) ->
   return r
 
 isIpInRange = (ip, block) ->
-  return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  if Array.isArray block
+    return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  else
+    return new Netmask(block).contains ip
 
 isIpInAnyRange = (ip, blocks) ->
   for block in blocks
