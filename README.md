@@ -25,7 +25,7 @@ but not actually sent to Twitter.
 
     anon --noop
 
-By default anon will look for a config.json file in your current working 
+By default anon will look for a `config.json` file in your current working 
 directory. If you would like to specify the location of the configuration 
 file use the `--config` parameter:
 
@@ -33,9 +33,13 @@ file use the `--config` parameter:
 
 ## Develop
 
-There is a small test suite for testing ip range logic:
+There's not much to anon but there is a small test suite, which might
+come in handy if you want to add functionality.
 
-    npm test
+1. `git clone https://github.com/edsu/anon.git`
+1. `cd anon`
+1. `npm install`
+1. `npm test`
 
 ## License: 
 
