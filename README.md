@@ -11,11 +11,11 @@ If you are curious the default IP ranges for the US Congress in the `config.json
 
 To run anon you will need to:
 
-1. install Node
+1. install [Node](http://nodejs.org)
 1. `npm install -g anon`
 1. `curl https://raw.githubusercontent.com/edsu/anon/master/config.json.template > config.json`
 1. add twitter credentials for your bot to config.json
-1. add ip ranges/names to config.json
+1. add IP ranges/names to config.json
 1. `anon`
 1. have some :coffee: and wait
 
