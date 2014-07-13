@@ -27,7 +27,7 @@ isIpInAnyRange = (ip, blocks) ->
 
 main = ->
   config = require(argv.config)
-  twitter = new Twit config
+  twitter = new Twit config unless argv['noop']
   wikipedia = new wikichanges.WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
@@ -37,6 +37,7 @@ main = ->
         if isIpInAnyRange edit.user, ranges
           status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
           console.log status
+          return if argv['noop']
           twitter.post 'statuses/update', status: status, (err, d, r) ->
             if err
               console.log err
