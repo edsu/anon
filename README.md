@@ -12,25 +12,24 @@ If you are curious the default IP ranges for the US Congress in the `config.json
 To run anon you will need to:
 
 1. install Node
-1. `git clone https://github.com/edsu/anon.git`
-1. `cd anon`
-1. `npm install` 
-1. `cp config.json.template config.json`
+1. `npm install -g anon`
+1. `curl https://raw.githubusercontent.com/edsu/anon/master/config.json.template > config.json`
 1. add twitter credentials for your bot to config.json
 1. add ip ranges/names to config.json
-1. `coffee anon.coffee`
+1. `anon`
 1. have some :coffee: and wait
 
 If you would like to test without tweeting you can run anon with the 
 `--noop` flag, which will cause the tweet to be written to the console
 but not actually sent to Twitter.
 
-    coffee anon.coffee --noop
+    anon --noop
 
-If you would like to have multiple configuration files you can pass
-which one to use as an argument:
+By default anon will look for a config.json file in your current working 
+directory. If you would like to specify the location of the configuration 
+file use the `--config` parameter:
 
-    coffee anon.coffee --config test.config
+    anon --config test.config
 
 ## Develop
 
