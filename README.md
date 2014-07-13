@@ -36,10 +36,10 @@ file use the `--config` parameter:
 There's not much to anon but there is a small test suite, which might
 come in handy if you want to add functionality.
 
-1. `git clone https://github.com/edsu/anon.git`
-1. `cd anon`
-1. `npm install`
-1. `npm test`
+    git clone https://github.com/edsu/anon.git
+    cd anon
+    npm install
+    npm test
 
 ## License: 
 
