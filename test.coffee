@@ -26,6 +26,12 @@ describe 'anon', ->
     it 'ip greater than range', ->
       assert.isFalse isIpInRange '123.123.123.123', ['123.123.123.0', '123.123.123.122']
 
+    it 'ip in cidr range', ->
+      assert.isTrue isIpInRange '123.123.123.123', '123.123.0.0/16'
+
+    it 'ip is not in cidr range', ->
+      assert.isFalse isIpInRange '123.123.123.123', '123.123.123.122/32'
+
   describe 'isIpInAnyRange', ->
     r1 = ['1.1.1.0', '1.1.1.5']
     r2 = ['2.2.2.0', '2.2.2.5']
