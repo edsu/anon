@@ -48,3 +48,4 @@ if require.main == module
 exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
+exports.run = main
