@@ -39,6 +39,7 @@ come in handy if you want to add functionality.
     git clone https://github.com/edsu/anon.git
     cd anon
     npm install
+    cp config.json.template config.json
     npm test
 
 ## License: 
