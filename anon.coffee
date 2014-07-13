@@ -1,6 +1,8 @@
-Twit = require 'twit'
+Twit        = require 'twit'
+minimist    = require 'minimist'
 wikichanges = require 'wikichanges'
-argv = require('minimist')(process.argv.slice(2), default: { config: './config.json'});
+
+argv = minimist process.argv.slice(2), default: config: './config.json'
 
 ipToQuad = (ip) ->
   return (parseInt(s) for s in ip.split('.'))
