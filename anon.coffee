@@ -43,7 +43,7 @@ main = ->
         if isIpInAnyRange edit.user, ranges
           status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
           console.log status
-          return if argv['noop']
+          return if argv.noop
           twitter.post 'statuses/update', status: status, (err, d, r) ->
             if err
               console.log err
