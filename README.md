@@ -7,6 +7,8 @@ IP ranges and will tweet when it notices one.  It was inspired by [@parliamented
 
 If you are curious the default IP ranges for the US Congress in the `config.json.template` file came from [govtrack](https://github.com/govtrack/govtrack.us-web/blob/master/website/middleware.py).  You can learn more about the significance of Congressional edits to Wikipedia [here](https://en.wikipedia.org/wiki/U.S._Congressional_staff_edits_to_Wikipedia) and [here](https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits).
 
+## Running
+
 To run anon you will need to:
 
 1. install Node
@@ -18,6 +20,17 @@ To run anon you will need to:
 1. add ip ranges/names to config.json
 1. `coffee anon.coffee`
 1. have some :coffee: and wait
+
+If you would like to test without tweeting you can run anon with the 
+`--noop` flag, which will cause the tweet to be written to the console
+but not actually sent to Twitter.
+
+    coffee anon.coffee --noop
+
+If you would like to have multiple configuration files you can pass
+which one to use as an argument:
+
+    coffee anon.coffee --config test.config
 
 ## Develop
 

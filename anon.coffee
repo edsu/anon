@@ -1,6 +1,7 @@
 Twit        = require 'twit'
+Netmask     = require('netmask').Netmask
 minimist    = require 'minimist'
-wikichanges = require 'wikichanges'
+WikiChanges = require('wikichanges').WikiChanges
 
 argv = minimist process.argv.slice(2), default: config: './config.json'
 
@@ -19,7 +20,10 @@ compareIps = (ip1, ip2) ->
   return r
 
 isIpInRange = (ip, block) ->
-  return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  if Array.isArray block
+    return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  else
+    return new Netmask(block).contains ip
 
 isIpInAnyRange = (ip, blocks) ->
   for block in blocks
@@ -30,7 +34,7 @@ isIpInAnyRange = (ip, blocks) ->
 main = ->
   config = require(argv.config)
   twitter = new Twit config unless argv['noop']
-  wikipedia = new wikichanges.WikiChanges(ircNickname: config.nick)
+  wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
     # we iterate through each group of ip ranges looking for a match

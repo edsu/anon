@@ -6,7 +6,8 @@
       "twit": "latest",
       "wikichanges": "latest",
       "coffee-script": "latest",
-      "minimist": "latest"
+      "minimist": "latest",
+      "netmask": "latest"
     },
     "devDependencies": {
       "mocha": "latest",
