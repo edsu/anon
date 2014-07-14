@@ -1,9 +1,14 @@
 {
   "nick": "yourIrcNickHere",
-  "consumer_key": "",
-  "consumer_secret": "",
-  "access_token": "",
-  "access_token_secret": "",
+  "notifiers": [
+    {
+      "notifier": "twitter",
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": ""
+    }
+  ],
   "ranges": {
     "US House of Representatives": [
       ["143.231.0.0", "143.231.255.255"],
@@ -18,5 +23,3 @@
     ]
   }
 }
-
-

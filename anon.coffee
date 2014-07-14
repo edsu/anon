@@ -1,4 +1,3 @@
-Twit        = require 'twit'
 Netmask     = require('netmask').Netmask
 minimist    = require 'minimist'
 WikiChanges = require('wikichanges').WikiChanges
@@ -34,9 +33,14 @@ isIpInAnyRange = (ip, blocks) ->
       return true
   return false
 
+loadNotifier = (config) ->
+  notifier_class = require("./notifiers/#{config['notifier']}").notifier
+  return new notifier_class(config)
+  
 main = ->
   config = require(argv.config)
-  twitter = new Twit config unless argv['noop']
+  notifiers = (loadNotifier(c) for c in config['notifiers'])
+
   wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
@@ -47,9 +51,7 @@ main = ->
           status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
           console.log status
           return if argv.noop
-          twitter.post 'statuses/update', status: status, (err, d, r) ->
-            if err
-              console.log err
+          notifier.notify(status) for notifier in notifiers
           return
 
 if require.main == module
