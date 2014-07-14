@@ -5,13 +5,16 @@ WikiChanges = require('wikichanges').WikiChanges
 
 argv = minimist process.argv.slice(2), default: config: './config.json'
 
-ipToQuad = (ip) ->
-  return (parseInt(s) for s in ip.split('.'))
+ipToInt = (ip) ->
+  octets = (parseInt(s) for s in ip.split('.'))
+  result = 0
+  result += n*Math.pow(255,i) for n,i in octets.reverse()
+  result
 
 compareIps = (ip1, ip2) ->
-  q1 = ipToQuad(ip1)
-  q2 = ipToQuad(ip2)
-  if "#{q1}" is "#{q2}"
+  q1 = ipToInt(ip1)
+  q2 = ipToInt(ip2)
+  if q1 == q2
     r = 0
   else if q1 < q2
     r = -1
