@@ -44,4 +44,7 @@ describe 'anon', ->
 
     it 'ip not in any ranges', ->
       assert.isFalse isIpInAnyRange '1.1.1.6', [r1, r2]
-
+      
+  describe 'IP Range Error (#12)', ->
+    it 'false positive not in ranges', ->
+      assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
