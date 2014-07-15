@@ -31,7 +31,7 @@ main = ->
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
     # we iterate through each group of ip ranges looking for a match
-    if edit.anonymous
+    if edit.anonymous and edit.url
       for name, ranges of config.ranges
         if isIpInAnyRange edit.user, ranges
           status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
