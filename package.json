@@ -15,9 +15,6 @@
       "mocha": "latest",
       "chai": "latest"
     },
-    "bin": {
-      "anon": "./bin/anon"
-    },
     "scripts": {
         "test": "mocha --colors --reporter spec --compilers coffee:coffee-script/register test.coffee"
     }
