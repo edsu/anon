@@ -10,7 +10,7 @@ argv = minimist process.argv.slice(2), default: config: './config.json'
 ipToInt = (ip) ->
   octets = (parseInt(s) for s in ip.split('.'))
   result = 0
-  result += n*Math.pow(255,i) for n,i in octets.reverse()
+  result += n * Math.pow(255, i) for n, i in octets.reverse()
   result
 
 compareIps = (ip1, ip2) ->
@@ -66,4 +66,5 @@ if require.main == module
 exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
+exports.ipToInt = ipToInt
 exports.run = main

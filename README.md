@@ -21,6 +21,18 @@ To run anon you will need to:
 1. `./anon.coffee`
 1. have some :coffee: and wait
 
+You may notice in the example `config.json.template` that you can configure 
+ip address ranges using a netmask:
+    
+      "143.231.0.0/16"
+
+or with an array of start/end IP addresses:
+
+    ["143.231.0.0", "143.231.255.255"]
+
+These two are equivalent, but the former is a bit faster, and easier to read 
+The latter is convenient if your range is difficult to express using a netmask.
+
 If you would like to test without tweeting you can run anon with the 
 `--noop` flag, which will cause the tweet to be written to the console
 but not actually sent to Twitter.
