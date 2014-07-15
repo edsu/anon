@@ -1,13 +1,22 @@
-Twit = require 'twit'
-wikichanges = require 'wikichanges'
+#!/usr/bin/env coffee
 
-ipToQuad = (ip) ->
-  return (parseInt(s) for s in ip.split('.'))
+Twit        = require 'twit'
+Netmask     = require('netmask').Netmask
+minimist    = require 'minimist'
+WikiChanges = require('wikichanges').WikiChanges
+
+argv = minimist process.argv.slice(2), default: config: './config.json'
+
+ipToInt = (ip) ->
+  octets = (parseInt(s) for s in ip.split('.'))
+  result = 0
+  result += n*Math.pow(255,i) for n,i in octets.reverse()
+  result
 
 compareIps = (ip1, ip2) ->
-  q1 = ipToQuad(ip1)
-  q2 = ipToQuad(ip2)
-  if "#{q1}" is "#{q2}"
+  q1 = ipToInt(ip1)
+  q2 = ipToInt(ip2)
+  if q1 == q2
     r = 0
   else if q1 < q2
     r = -1
@@ -16,7 +25,10 @@ compareIps = (ip1, ip2) ->
   return r
 
 isIpInRange = (ip, block) ->
-  return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  if Array.isArray block
+    return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+  else
+    return new Netmask(block).contains ip
 
 isIpInAnyRange = (ip, blocks) ->
   for block in blocks
@@ -25,9 +37,9 @@ isIpInAnyRange = (ip, blocks) ->
   return false
 
 main = ->
-  config = require './config.json'
-  twitter = new Twit config
-  wikipedia = new wikichanges.WikiChanges(ircNickname: config.nick)
+  config = require(argv.config)
+  twitter = new Twit config unless argv['noop']
+  wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
     # we iterate through each group of ip ranges looking for a match
@@ -36,6 +48,7 @@ main = ->
         if isIpInAnyRange edit.user, ranges
           status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
           console.log status
+          return if argv.noop
           twitter.post 'statuses/update', status: status, (err, d, r) ->
             if err
               console.log err
@@ -48,3 +61,4 @@ if require.main == module
 exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
+exports.run = main

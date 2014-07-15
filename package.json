@@ -1,15 +1,22 @@
 {
     "name": "anon",
-    "version": "0.0.1",
-    "private": true,
+    "description": "Tweet anonymous edits to Wikipedia from IP ranges.",
+    "homepage": "http://github.com/edsu/anon",
+    "license": "CC0-1.0",
+    "version": "0.0.3",
     "dependencies": {
       "twit": "latest",
       "wikichanges": "latest",
-      "coffee-script": "latest"
+      "coffee-script": "latest",
+      "minimist": "latest",
+      "netmask": "latest"
     },
     "devDependencies": {
       "mocha": "latest",
       "chai": "latest"
+    },
+    "bin": {
+      "anon": "./bin/anon"
     },
     "scripts": {
         "test": "mocha --colors --reporter spec --compilers coffee:coffee-script/register test.coffee"
