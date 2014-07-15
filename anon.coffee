@@ -36,8 +36,13 @@ isIpInAnyRange = (ip, blocks) ->
       return true
   return false
 
+getConfig = (path) ->
+  if path[0] != '/' and path[0..1] != './'
+    path = './' + path
+  return require(path)
+
 main = ->
-  config = require(argv.config)
+  config = getConfig(argv.config)
   twitter = new Twit config unless argv['noop']
   wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
