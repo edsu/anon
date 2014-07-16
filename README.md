@@ -19,6 +19,7 @@ To run anon you will need to:
 1. `cp config.json.template config.json`
 1. add twitter credentials for your bot to `config.json`
 1. add IP ranges/names to `config.json`
+1. modify status template if desired
 1. `./anon.coffee`
 1. have some :coffee: and wait
 
