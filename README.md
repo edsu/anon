@@ -15,6 +15,7 @@ To run anon you will need to:
 1. `npm install -g coffee-script`
 1. `git clone https://github.com/edsu/anon.git`
 1. `cd anon`
+1. `npm install`
 1. `cp config.json.template config.json`
 1. add twitter credentials for your bot to `config.json`
 1. add IP ranges/names to `config.json`
