@@ -6,7 +6,9 @@ minimist    = require 'minimist'
 WikiChanges = require('wikichanges').WikiChanges
 Mustache    = require('mustache')
 
-argv = minimist process.argv.slice(2), default: config: './config.json'
+argv = minimist process.argv.slice(2), default:
+  verbose: false
+  config: './config.json'
 
 ipToInt = (ip) ->
   octets = (parseInt(s) for s in ip.split('.'))
@@ -44,12 +46,14 @@ getConfig = (path) ->
 
 main = ->
   config = getConfig(argv.config)
-  twitter = new Twit config unless argv['noop']
+  twitter = new Twit config unless argv.noop
   wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
-    # if we have an anonymous edit, then edit.user will be the ip address
-    # we iterate through each group of ip ranges looking for a match
-    if edit.anonymous and edit.url
+    if not edit.url
+      return
+    if argv.verbose
+      console.log edit.url
+    if edit.anonymous
       for name, ranges of config.ranges
         if isIpInAnyRange edit.user, ranges
           status = Mustache.render config.template,
