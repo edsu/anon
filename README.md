@@ -59,9 +59,13 @@ come in handy if you want to add functionality.
 ## Which Wikipedias?
 
 anon uses the [wikichanges](https://github.com/edsu/wikichanges) module
-to listen to 38 language Wikipedias. It uses IRC to do this, so make sure
-your network doesn't block IRC. Here are the Wikipedias that it currently
-supports:
+to listen to 38 language Wikipedias. wikichanges achieves this by logging
+in to the Wikimedia IRC server and listening to the 
+[recent changes](https://meta.wikimedia.org/wiki/IRC/Channels#Recent_changes) 
+channels for each Wikipedia. So if you plan on running wikichanges be sure 
+your network supports IRC (it can sometimes be blocked). 
+
+Here are the Wikipedias that it currently supports:
 
 * [Arabic](https://ar.wikipedia.org)
 * [Bulgarian](https://bg.wikipedia.org)
