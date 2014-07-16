@@ -4,6 +4,7 @@ Twit        = require 'twit'
 Netmask     = require('netmask').Netmask
 minimist    = require 'minimist'
 WikiChanges = require('wikichanges').WikiChanges
+mu          = require('mu2')
 
 argv = minimist process.argv.slice(2), default: config: './config.json'
 
@@ -45,19 +46,27 @@ main = ->
   config = getConfig(argv.config)
   twitter = new Twit config unless argv['noop']
   wikipedia = new WikiChanges(ircNickname: config.nick)
+  template = mu.compileText('twitTemplate', config.template)
   wikipedia.listen (edit) ->
     # if we have an anonymous edit, then edit.user will be the ip address
     # we iterate through each group of ip ranges looking for a match
     if edit.anonymous and edit.url
       for name, ranges of config.ranges
         if isIpInAnyRange edit.user, ranges
-          status = edit.page + ' Wikipedia article edited anonymously by ' + name + ' ' + edit.url
-          console.log status
-          return if argv.noop
-          twitter.post 'statuses/update', status: status, (err, d, r) ->
-            if err
-              console.log err
-          return
+          status = ''
+          mu.render(template,
+            page: edit.page
+            name: name
+            url: edit.url
+          ).on 'data', (c) ->
+            status += c.toString()
+          .on 'end', (data) ->
+            console.log status
+            return if argv.noop
+            twitter.post 'statuses/update', status: status, (err, d, r) ->
+              if err
+                console.log err
+            return
 
 if require.main == module
   main()
