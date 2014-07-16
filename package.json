@@ -10,7 +10,7 @@
     "coffee-script": "latest",
     "minimist": "latest",
     "netmask": "latest",
-    "mu2": "^0.5.20"
+    "mustache": "latest"
   },
   "devDependencies": {
     "mocha": "latest",

@@ -8,6 +8,7 @@ isIpInAnyRange = anon.isIpInAnyRange
 describe 'anon', ->
 
   describe "compareIps", ->
+
     it 'equal', ->
       assert.equal 0, compareIps '1.1.1.1', '1.1.1.1'
     it 'greater than', ->
@@ -33,6 +34,7 @@ describe 'anon', ->
       assert.isFalse isIpInRange '123.123.123.123', '123.123.123.122/32'
 
   describe 'isIpInAnyRange', ->
+
     r1 = ['1.1.1.0', '1.1.1.5']
     r2 = ['2.2.2.0', '2.2.2.5']
 
@@ -46,5 +48,6 @@ describe 'anon', ->
       assert.isFalse isIpInAnyRange '1.1.1.6', [r1, r2]
       
   describe 'IP Range Error (#12)', ->
+
     it 'false positive not in ranges', ->
       assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
