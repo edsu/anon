@@ -47,6 +47,8 @@ getStatus = (edit, name, template) ->
     name: name,
     url: edit.url
     page: edit.page
+  # TODO: check that status isn't > 140 characters, url will be 22 chars
+  # https://support.twitter.com/articles/78124-posting-links-in-a-tweet
   return status
 
 main = ->
