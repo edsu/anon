@@ -3,8 +3,8 @@
 Twit        = require 'twit'
 Netmask     = require('netmask').Netmask
 minimist    = require 'minimist'
-WikiChanges = require('wikichanges').WikiChanges
 Mustache    = require('mustache')
+WikiChanges = require('wikichanges').WikiChanges
 
 argv = minimist process.argv.slice(2), default: config: './config.json'
 
@@ -42,6 +42,13 @@ getConfig = (path) ->
     path = './' + path
   return require(path)
 
+getStatus = (edit, name, template) ->
+  status = Mustache.render template,
+    name: name,
+    url: edit.url
+    page: edit.page
+  return status
+
 main = ->
   config = getConfig(argv.config)
   twitter = new Twit config unless argv['noop']
@@ -52,10 +59,7 @@ main = ->
     if edit.anonymous and edit.url
       for name, ranges of config.ranges
         if isIpInAnyRange edit.user, ranges
-          status = Mustache.render config.template,
-            page: edit.page
-            name: name
-            url: edit.url
+          status = getStatus edit, name, config.template,
           console.log status
           return if argv.noop
           twitter.post 'statuses/update', status: status, (err, d, r) ->
@@ -71,4 +75,5 @@ exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
 exports.ipToInt = ipToInt
+exports.getStatus = getStatus
 exports.run = main

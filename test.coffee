@@ -1,6 +1,7 @@
 anon = require './anon'
 assert = require('chai').assert
 
+getStatus = anon.getStatus
 compareIps = anon.compareIps
 isIpInRange = anon.isIpInRange
 isIpInAnyRange = anon.isIpInAnyRange
@@ -51,3 +52,23 @@ describe 'anon', ->
 
     it 'false positive not in ranges', ->
       assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
+
+  describe 'getStatus', ->
+
+    it 'works', ->
+      edit = page: 'Foo', url: 'http://example.com'
+      name = 'Bar'
+      template = "{{page}} edited by {{name}} {{&url}}"
+      result = getStatus edit, name, template
+      assert.equal 'Foo edited by Bar http://example.com', result
+
+    it 'truncates when > 140 chars', ->
+      edit =
+        page: Array(140).join 'x'
+        url: 'http://example.com'
+      name = 'Bar'
+      template = "{{page}} edited by {{name}} {{&url}}"
+      result = getStatus edit, name, template
+      assert.isTrue result.length <= 140
+
+
