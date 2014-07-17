@@ -1,1 +1,4 @@
 language: node_js
+branches:
+  only:
+    - master
