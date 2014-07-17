@@ -63,10 +63,11 @@ describe 'anon', ->
       assert.equal 'Foo edited by Bar http://example.com', result
 
     it 'truncates when > 140 chars', ->
+      # twitter shortens al urls, so we use a shortened one here
       edit =
         page: Array(140).join 'x'
-        url: 'http://example.com'
-      name = 'Bar'
+        url: 'http://t.co/BzHLWr31Ce'
+      name = 'test'
       template = "{{page}} edited by {{name}} {{&url}}"
       result = getStatus edit, name, template
       assert.isTrue result.length <= 140

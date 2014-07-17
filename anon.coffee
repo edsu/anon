@@ -40,14 +40,24 @@ getConfig = (path) ->
     path = './' + path
   require(path)
 
-getStatus = (edit, name, template) ->
-  status = Mustache.render template,
-    name: name,
-    url: edit.url
-    page: edit.page
-  # TODO: check that status isn't > 140 characters, url will be 22 chars
+getStatusLength = (edit, name, template) ->
+  # returns length of the tweet based on shortened url
   # https://support.twitter.com/articles/78124-posting-links-in-a-tweet
-  return status
+  fakeUrl = 'http://t.co/BzHLWr31Ce'
+  status = Mustache.render template, name: name, url: fakeUrl, page: edit.page
+  status.length
+
+getStatus = (edit, name, template) ->
+  len = getStatusLength(edit, name, template)
+  if len > 140
+    newLength = edit.page.length - (len - 139)
+    page = edit.page[0..newLength]
+  else
+    page = edit.page
+  Mustache.render template,
+    name: name
+    url: edit.url
+    page: page
 
 main = ->
   config = getConfig(argv.config)
