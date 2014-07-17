@@ -122,6 +122,10 @@ If you would like to have another one added please add a ticket to the
 [wikichanges](https://github.com/edsu/wikichanges/issues?state=closed)
 issue tracker.
 
+## Community IP Ranges
+
+* [@gccaedits](https://github.com/ruebot/gccaedits-ip-address-ranges)
+
 ## License: 
 
 * [CC0](LICENSE) public domain dedication
