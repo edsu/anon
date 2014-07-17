@@ -27,5 +27,6 @@ getWikipediaPages = (url, callback) ->
         whitelist[person.id.wikipedia] = true
     callback null
 
-async.eachSeries urls, getWikipediaPages, (err, pages) ->
-  console.log JSON.stringify whitelist, null, 2
+async.eachSeries urls, getWikipediaPages, (err) ->
+  unless err
+    console.log JSON.stringify whitelist, null, 2

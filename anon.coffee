@@ -48,7 +48,8 @@ main = ->
     if edit.url
       if argv.verbose
         console.log edit.url
-      if config.whitelist[edit.page]
+      if config.whitelist[edit.wikipedia] \
+          and config.whitelist[edit.wikipedia][edit.page]
         status = Mustache.render config.template,
           page: edit.page
           name: edit.user
@@ -58,7 +59,7 @@ main = ->
       else if edit.anonymous
         for name, ranges of config.ranges
           if isIpInAnyRange edit.user, ranges
-            console.log Mustache.render config.template,
+            status = Mustache.render config.template,
               page: edit.page
               name: name
               url: edit.url
