@@ -51,10 +51,11 @@ main = ->
       if edit.anonymous
         for name, ranges of config.ranges
           if isIpInAnyRange edit.user, ranges
-            console.log Mustache.render config.template,
+            status = Mustache.render config.template,
               page: edit.page
               name: name
               url: edit.url
+            console.log status
             unless argv.noop
               twitter.post 'statuses/update', status: status, (err) ->
                 console.log err if err
