@@ -48,7 +48,7 @@ getStatusLength = (edit, name, template) ->
   status.length
 
 getStatus = (edit, name, template) ->
-  len = getStatusLength(edit, name, template)
+  len = getStatusLength edit, name, template
   if len > 140
     newLength = edit.page.length - (len - 139)
     page = edit.page[0..newLength]
@@ -60,9 +60,9 @@ getStatus = (edit, name, template) ->
     page: page
 
 main = ->
-  config = getConfig(argv.config)
+  config = getConfig argv.config
   twitter = new Twit config unless argv.noop
-  wikipedia = new WikiChanges(ircNickname: config.nick)
+  wikipedia = new WikiChanges ircNickname: config.nick
   wikipedia.listen (edit) ->
     if edit.url
       if argv.verbose
