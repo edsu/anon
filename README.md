@@ -19,11 +19,14 @@ To run anon you will need to:
 1. `cd anon`
 1. `npm install`
 1. `cp config.json.template config.json`
-1. add twitter credentials for your bot to `config.json`
+1. add twitter credentials for your bot to `config.json` (make sure the Twitter
+app you create has read/write permission or else it won't be able to tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
 1. `./anon.coffee`
 1. have some :coffee: and wait
+
+### IP Ranges
 
 You'll notice in the example `config.json.template` that you can configure 
 ip address ranges using a netmask:
@@ -37,11 +40,20 @@ or with an array of start/end IP addresses:
 These two are equivalent, but the former is a bit faster, and easier to read 
 The latter is convenient if your range is difficult to express using a netmask.
 
+### Debugging
+
 If you would like to test without tweeting you can run anon with the 
 `--noop` flag, which will cause the tweet to be written to the console
 but not actually sent to Twitter.
 
     ./anon.coffee --noop
+
+If you would like to see all the change activity (URLs for each change) to test
+that it's actually listening use the `--verbose` flag:
+
+    ./anon.coffee --verbose
+
+### Alternate Configuration Files
 
 By default anon will look for a `config.json` file in your current working 
 directory. If you would like to specify the location of the configuration 

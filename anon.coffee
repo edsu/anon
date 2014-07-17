@@ -1,12 +1,14 @@
 #!/usr/bin/env coffee
 
-Twit        = require 'twit'
-Netmask     = require('netmask').Netmask
-minimist    = require 'minimist'
-Mustache    = require('mustache')
-WikiChanges = require('wikichanges').WikiChanges
+Twit          = require 'twit'
+{Netmask}     = require 'netmask'
+minimist      = require 'minimist'
+{WikiChanges} = require 'wikichanges'
+Mustache      = require 'mustache'
 
-argv = minimist process.argv.slice(2), default: config: './config.json'
+argv = minimist process.argv.slice(2), default:
+  verbose: false
+  config: './config.json'
 
 ipToInt = (ip) ->
   octets = (parseInt(s) for s in ip.split('.'))
@@ -18,29 +20,25 @@ compareIps = (ip1, ip2) ->
   q1 = ipToInt(ip1)
   q2 = ipToInt(ip2)
   if q1 == q2
-    r = 0
+    0
   else if q1 < q2
-    r = -1
+    -1
   else
-    r = 1
-  return r
+    1
 
 isIpInRange = (ip, block) ->
   if Array.isArray block
-    return compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
+    compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
   else
-    return new Netmask(block).contains ip
+    new Netmask(block).contains ip
 
 isIpInAnyRange = (ip, blocks) ->
-  for block in blocks
-    if isIpInRange(ip, block)
-      return true
-  return false
+  blocks.filter((block) -> isIpInRange(ip, block)).length > 0
 
 getConfig = (path) ->
   if path[0] != '/' and path[0..1] != './'
     path = './' + path
-  return require(path)
+  require(path)
 
 getStatus = (edit, name, template) ->
   status = Mustache.render template,
@@ -53,21 +51,20 @@ getStatus = (edit, name, template) ->
 
 main = ->
   config = getConfig(argv.config)
-  twitter = new Twit config unless argv['noop']
+  twitter = new Twit config unless argv.noop
   wikipedia = new WikiChanges(ircNickname: config.nick)
   wikipedia.listen (edit) ->
-    # if we have an anonymous edit, then edit.user will be the ip address
-    # we iterate through each group of ip ranges looking for a match
-    if edit.anonymous and edit.url
-      for name, ranges of config.ranges
-        if isIpInAnyRange edit.user, ranges
-          status = getStatus edit, name, config.template,
-          console.log status
-          return if argv.noop
-          twitter.post 'statuses/update', status: status, (err, d, r) ->
-            if err
-              console.log err
-          return
+    if edit.url
+      if argv.verbose
+        console.log edit.url
+      if edit.anonymous
+        for name, ranges of config.ranges
+          if isIpInAnyRange edit.user, ranges
+            status = getStatus edit, name, config.template
+            console.log status
+            unless argv.noop
+              twitter.post 'statuses/update', status: status, (err) ->
+                console.log err if err
 
 if require.main == module
   main()
