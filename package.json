@@ -6,7 +6,7 @@
   "version": "0.0.3",
   "dependencies": {
     "twit": "latest",
-    "wikichanges": "latest",
+    "wikichanges": ">=0.2.3",
     "coffee-script": "latest",
     "minimist": "latest",
     "netmask": "latest",
