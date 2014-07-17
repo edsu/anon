@@ -48,10 +48,17 @@ main = ->
     if edit.url
       if argv.verbose
         console.log edit.url
+      if config.whitelist[edit.page]
+        status = Mustache.render config.whitelist_template,
+          page: edit.page
+          name: edit.user
+          url: edit.url
+        console.log status
+        # TODO: tweet
       if edit.anonymous
         for name, ranges of config.ranges
           if isIpInAnyRange edit.user, ranges
-            console.log Mustache.render config.template,
+            console.log Mustache.render config.anon_template,
               page: edit.page
               name: name
               url: edit.url
