@@ -1,31 +1,35 @@
 {
   "nick": "yourIrcNickHere",
-  "consumer_key": "",
-  "consumer_secret": "",
-  "access_token": "",
-  "access_token_secret": "",
-  "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
-  "ranges": {
-    "US House of Representatives": [
-      "143.231.0.0/16",
-      "137.18.0.0/16",
-      "143.228.0.0/16",
-      "74.119.128.0/16",
-      ["12.185.56.0", "12.185.56.7"],
-      ["12.147.170.144", "12.147.170.159"]
-    ],
-    "US Senate": [
-      "156.33.0.0/16"
-    ]
-  },
-  "whitelist": {
-    "en": {
-      "Sherrod Brown": true,
-      "Maria Cantwell": true,
-      "Ben Cardin": true,
-      "Tom Carper": true
+  "accounts": [
+    {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": "",
+      "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
+      "ranges": {
+        "US House of Representatives": [
+          "143.231.0.0/16",
+          "137.18.0.0/16",
+          "143.228.0.0/16",
+          "74.119.128.0/16",
+          ["12.185.56.0", "12.185.56.7"],
+          ["12.147.170.144", "12.147.170.159"]
+        ],
+        "US Senate": [
+          "156.33.0.0/16"
+        ]
+      },
+      "whitelist": {
+        "English Wikipedia": {
+          "Sherrod Brown": true,
+          "Maria Cantwell": true,
+          "Ben Cardin": true,
+          "Tom Carper": true
+        }
+      }
     }
-  }
+  ]
 }
 
 
