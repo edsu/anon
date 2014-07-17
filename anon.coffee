@@ -59,30 +59,33 @@ getStatus = (edit, name, template) ->
     url: edit.url
     page: page
 
+tweet = (account, status) ->
+  console.log status
+  unless argv.noop
+    twitter = new Twit account
+    twitter.post 'statuses/update', status: status, (err) ->
+      console.log err if err
+
+inspect = (account, edit) ->
+  if edit.url
+    if argv.verbose
+      console.log edit.url
+    if account.whitelist and account.whitelist[edit.wikipedia] \
+        and account.whitelist[edit.wikipedia][edit.page]
+      status = getStatus edit, edit.user, account.template
+      tweet account, status
+    else if account.ranges and edit.anonymous
+      for name, ranges of account.ranges
+        if isIpInAnyRange edit.user, ranges
+          status = getStatus edit, name, account.template
+          tweet account, status
+
 main = ->
   config = getConfig argv.config
-  twitter = new Twit config unless argv.noop
   wikipedia = new WikiChanges ircNickname: config.nick
   wikipedia.listen (edit) ->
-    if edit.url
-      if argv.verbose
-        console.log edit.url
-      if config.whitelist[edit.wikipedia] \
-          and config.whitelist[edit.wikipedia][edit.page]
-        status = Mustache.render config.template,
-          page: edit.page
-          name: edit.user
-          url: edit.url
-        console.log status
-        # TODO: tweet
-      else if edit.anonymous
-        for name, ranges of config.ranges
-          if isIpInAnyRange edit.user, ranges
-            status = getStatus edit, name, config.template
-            console.log status
-            unless argv.noop
-              twitter.post 'statuses/update', status: status, (err) ->
-                console.log err if err
+    for account in config.accounts
+      inspect account, edit
 
 if require.main == module
   main()
@@ -93,4 +96,4 @@ exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
 exports.ipToInt = ipToInt
 exports.getStatus = getStatus
-exports.run = main
+exports.main = main
