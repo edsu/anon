@@ -118,6 +118,10 @@ Here are the Wikipedias that it currently supports:
 * [Wikidata](https://wd.wikipedia.org)
 * [Wikimedia Commons](https://co.wikipedia.org)
 
+If you would like to have another one added please add a ticket to the
+[wikichanges](https://github.com/edsu/wikichanges/issues?state=closed)
+issue tracker.
+
 ## License: 
 
 * [CC0](LICENSE) public domain dedication

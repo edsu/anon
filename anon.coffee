@@ -40,10 +40,29 @@ getConfig = (path) ->
     path = './' + path
   require(path)
 
+getStatusLength = (edit, name, template) ->
+  # returns length of the tweet based on shortened url
+  # https://support.twitter.com/articles/78124-posting-links-in-a-tweet
+  fakeUrl = 'http://t.co/BzHLWr31Ce'
+  status = Mustache.render template, name: name, url: fakeUrl, page: edit.page
+  status.length
+
+getStatus = (edit, name, template) ->
+  len = getStatusLength edit, name, template
+  if len > 140
+    newLength = edit.page.length - (len - 139)
+    page = edit.page[0..newLength]
+  else
+    page = edit.page
+  Mustache.render template,
+    name: name
+    url: edit.url
+    page: page
+
 main = ->
-  config = getConfig(argv.config)
+  config = getConfig argv.config
   twitter = new Twit config unless argv.noop
-  wikipedia = new WikiChanges(ircNickname: config.nick)
+  wikipedia = new WikiChanges ircNickname: config.nick
   wikipedia.listen (edit) ->
     if edit.url
       if argv.verbose
@@ -59,10 +78,8 @@ main = ->
       else if edit.anonymous
         for name, ranges of config.ranges
           if isIpInAnyRange edit.user, ranges
-            status = Mustache.render config.template,
-              page: edit.page
-              name: name
-              url: edit.url
+            status = getStatus edit, name, config.template
+            console.log status
             unless argv.noop
               twitter.post 'statuses/update', status: status, (err) ->
                 console.log err if err
@@ -75,4 +92,5 @@ exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
 exports.ipToInt = ipToInt
+exports.getStatus = getStatus
 exports.run = main
