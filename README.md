@@ -42,11 +42,15 @@ The latter is convenient if your range is difficult to express using a netmask.
 
 ### Transparency
 
-If you research and create your IP ranges and would like to document them
-here, please add your config file without the Twitter auth keys to the `conf`
-directory. Name the file using your Twitter account, e.g. for congressedits
+If you end up running an anon bot we would love to document the IP address
+ranges you use for transparency purposes. Please add your config file 
+without the Twitter auth keys to the `conf` directory. Name the file 
+using your Twitter account, e.g. for congressedits
 
     conf/congressedits.json
+
+You can use a service like [ARIN Online](http://whois.arin.net/ui) to look up
+IP address ranges by organization name.
 
 ### Debugging
 
