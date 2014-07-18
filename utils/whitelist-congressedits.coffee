@@ -1,32 +1,21 @@
 #!/usr/bin/env coffee
 
-# this script will output a json dictionary of US Congress Wikipedia
-# articles for the purpose of adding it to a config.json whitelist
+# This script outputs a JSON dictionary of Wikipedia articles about current 
+# US Congress members. The dictionary is suitable for using as a whitelist
+# in your anon config.json file. 
 #
-# you'll need to:
+# Before you use it you'll need these two dependencies:
 #
-#     npm install async request yaml
+#     npm install request yamljs
 
-async = require 'async'
-yaml = require 'yamljs'
+yaml    = require 'yamljs'
 request = require 'request'
 
+url = 'https://raw.githubusercontent.com/unitedstates/congress-legislators/master/legislators-current.yaml'
+
 whitelist = {}
-
-urls = [
-  # current legislators
-  'https://raw.githubusercontent.com/unitedstates/congress-legislators/master/legislators-current.yaml',
-  # historical legislators
-  'https://raw.githubusercontent.com/unitedstates/congress-legislators/master/legislators-historical.yaml'
-]
-
-getWikipediaPages = (url, callback) ->
-  res = request.get url, (e, r, b) ->
-    for person in yaml.parse b
-      if person.id.wikipedia
-        whitelist[person.id.wikipedia] = true
-    callback null
-
-async.eachSeries urls, getWikipediaPages, (err) ->
-  unless err
-    console.log JSON.stringify whitelist, null, 2
+res = request.get url, (e, r, b) ->
+  for person in yaml.parse b
+    if person.id.wikipedia
+      whitelist[person.id.wikipedia] = true
+  console.log JSON.stringify whitelist, null, 2
