@@ -20,7 +20,7 @@ To run anon you will need to:
 1. `npm install`
 1. `cp config.json.template config.json`
 1. add twitter credentials for your bot to `config.json` (make sure the Twitter
-app you create has read/write permission or else it won't be able to tweet)
+app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
 1. `./anon.coffee`
@@ -28,10 +28,10 @@ app you create has read/write permission or else it won't be able to tweet)
 
 ### IP Ranges
 
-You'll notice in the example `config.json.template` that you can configure 
+You will notice in the example `config.json.template` that you can configure 
 ip address ranges using a netmask:
     
-      "143.231.0.0/16"
+    "143.231.0.0/16"
 
 or with an array of start/end IP addresses:
 
@@ -39,6 +39,14 @@ or with an array of start/end IP addresses:
 
 These two are equivalent, but the former is a bit faster, and easier to read 
 The latter is convenient if your range is difficult to express using a netmask.
+
+### Transparency
+
+If you research and create your IP ranges and would like to document them
+here, please add your config file without the Twitter auth keys to the `conf`
+directory. Name the file using your Twitter account, e.g. for congressedits
+
+    conf/congressedits.json
 
 ### Debugging
 
@@ -49,7 +57,7 @@ but not actually sent to Twitter.
     ./anon.coffee --noop
 
 If you would like to see all the change activity (URLs for each change) to test
-that it's actually listening use the `--verbose` flag:
+that it is actually listening use the `--verbose` flag:
 
     ./anon.coffee --verbose
 
