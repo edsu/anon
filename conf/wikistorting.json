@@ -1,16 +1,20 @@
 {
-    "nick": "wikistorting",
-    "consumer_key": "",
-    "consumer_secret": "",
-    "access_token": "",
-    "access_token_secret": "",
-    "template": "Wikipedia-artikkelen {{page}} ble anonymt redigert fra {{name}} {{&url}}",
-    "ranges": {
-        "Stortinget": [
-            ["85.88.64.0", "85.88.67.255"]
-        ],
-        "regjeringskontorene": [
-            ["132.150.0.0", "132.150.255.255"]
-        ]
+  "nick": "wikistorting",
+  "accounts": [
+    {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": "",
+      "template": "Wikipedia-artikkelen {{page}} ble anonymt redigert fra {{name}} {{&url}}",
+      "ranges": {
+          "Stortinget": [
+              ["85.88.64.0", "85.88.67.255"]
+          ],
+          "regjeringskontorene": [
+              ["132.150.0.0", "132.150.255.255"]
+          ]
+      }
     }
+  ]
 }
