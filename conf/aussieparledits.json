@@ -1,0 +1,59 @@
+{
+  "nick": "AussieParlEdits",
+  "accounts": [
+    {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": "",
+      "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
+      "ranges": {
+        "Australian Department of Parliamentary Services": [
+          ["164.75.0.0", "164.75.15.255"],
+          ["202.14.81.0", "202.14.81.255"]
+        ],
+        "Parliament of Western Australia": [
+          ["203.26.90.0", "203.26.91.255"]
+        ],
+        "Ministry of Premier & Cabinet of WA": [
+          ["203.62.235.0", "203.62.239.255"]
+        ],
+        "Parliament of New South Wales": [
+          ["203.13.64.0", "203.13.67.255"]
+        ],
+        "NSW Parliament House": [
+          ["203.31.230.0", "203.31.231.255"]
+        ],
+        "NSW Government Ministerial Network": [
+          ["203.15.80.0", "203.15.83.255"]
+        ],
+        "NSW Department of Premier and Cabinet": [
+          ["202.61.109.0", "202.61.109.255"]
+        ],
+        "Parliament of Victoria": [
+          ["203.16.24.0", "203.16.25.255"],
+          ["203.33.151.0", "203.33.151.255"]
+        ],
+        "Parliament of Tasmania": [
+          ["147.109.254.170", "147.109.254.170"]
+        ],
+        "TAS Department of Premier and Cabinet": [
+          ["202.7.8.0", "202.7.8.255"]
+        ],
+        "Parliament of Queensland": [
+          ["203.63.228.128", "203.63.228.255"]
+        ],
+        "SA Office of Chief Information Officer": [
+          ["203.6.146.0", "203.6.147.255"]
+        ],
+        "Northern Territory Government": [
+          ["150.191.0.0", "150.191.255.255"],
+          ["155.205.0.0", "155.205.255.255"]
+        ]
+
+      },
+      "whitelist": {
+      }
+    }
+  ]
+}
