@@ -1,4 +1,11 @@
-{
+{  
+  "nick": "",
+  "consumer_key": "",
+  "consumer_secret": "",
+  "access_token": "",
+  "access_token_secret": "",
+  "template": "{{page}} Wiki article edited anonymously by {{name}} {{&url}}",
+  "ranges": {
     "ranges": {
         "Exxon Mobil": [
         "192.67.48.0/24",
