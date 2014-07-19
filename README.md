@@ -1,6 +1,7 @@
 # anon
 
 [![Build Status](https://secure.travis-ci.org/edsu/anon.png)](http://travis-ci.org/edsu/anon)
+[![Gitter chat](https://badges.gitter.im/edsu/anon.png)](https://gitter.im/edsu/anon)
 
 This little coffee script will watch Wikipedia for edits from a set of 
 named IP ranges and will tweet when it notices one.  It was inspired by 
