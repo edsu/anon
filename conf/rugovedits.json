@@ -472,6 +472,471 @@
           "195.239.251.48/29"
         ]
       }
+    },
+    {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": "",
+      "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
+      "ranges": {
+        "ATS Smolnogo": [
+          "46.47.211.0/24"
+        ],
+        "Agency of Special Construction of the FSB": [
+          "195.42.75.8/29"
+        ],
+        "FSKN of Altai": [
+          "95.167.162.236/30"
+        ],
+        "Altai tax service": [
+          "217.107.45.0/29"
+        ],
+        "Atlas": [
+          "178.237.206.0/24",
+          "91.190.236.0/22"
+        ],
+        "Azov Rospotrebnadzor": [
+          "87.117.21.8/29"
+        ],
+        "Bashkortostan tax service": [
+          "217.107.5.64/29",
+          "217.107.5.0/29"
+        ],
+        "Broadcasting and Notification Network": [
+          "178.237.240.0/20"
+        ],
+        "CTSPI of the MOFA": [
+          "80.73.16.0/20"
+        ],
+        "CenterInform": [
+          "195.149.110.0/24"
+        ],
+        "Central Election Commission": [
+          "194.226.97.0/24"
+        ],
+        "Central clinic of FSKN": [
+          "62.117.121.248/29",
+          "81.195.118.48/30",
+          "212.100.159.120/29"
+        ],
+        "Centre of Special Communication & Information of the FSB": [
+          "195.85.234.0/23",
+          "195.85.236.0/24",
+          "195.225.232.0/22"
+        ],
+        "Cherkessk tax service": [
+          "217.106.203.240/29"
+        ],
+        "Chuvashia tax service": [
+          "217.106.150.80/29"
+        ],
+        "Duma of Kaliningrad Oblast": [
+          "93.153.144.60/30"
+        ],
+        "Duma of Moscow Oblast": [
+          "82.198.176.144/29",
+          "82.198.176.16/29"
+        ],
+        "Duma of Sverdlovsk Oblast": [
+          "212.23.85.128/25",
+          "212.23.73.4/30"
+        ],
+        "EMERCOM": [
+          "77.72.137.96/27",
+          "212.45.5.160/29",
+          "92.39.106.168/30",
+          "213.234.15.248/30"
+        ],
+        "EMERCOM of Saratov": [
+          "217.23.88.248/29"
+        ],
+        "EMERCOM of Vladivostok": [
+          "82.162.103.144/28",
+          "77.35.98.240/28",
+          "82.162.103.144/28"
+        ],
+        "EMERCOM of Zelenograd": [
+          "94.79.34.128/29",
+          "94.79.34.192/29"
+        ],
+        "Ekaterinburg duma": [
+          "195.58.0.212/30",
+          "195.58.30.64/26"
+        ],
+        "Electronic Government": [
+          "109.207.0.0/20"
+        ],
+        "FAPRID": [
+          "213.189.199.128/28"
+        ],
+        "FGC UES": [
+          "195.66.72.0/24",
+          "194.8.246.0/23"
+        ],
+        "FKU UAT FSIN": [
+          "82.138.54.72/29"
+        ],
+        "FSIN of Barnaul": [
+          "81.1.236.192/27",
+          "81.1.237.176/29"
+        ],
+        "FSKN": [
+          "95.167.59.244/30",
+          "95.167.59.248/30",
+          "92.50.198.72/30",
+          "193.164.232.128/27"
+        ],
+        "FSKN of Amur oblast": [
+          "95.167.157.156/30"
+        ],
+        "FSKN of Chita": [
+          "94.25.70.64/30"
+        ],
+        "FSKN of Khabarovsk": [
+          "95.167.116.188/30",
+          "188.128.98.204/30"
+        ],
+        "FSKN of Primorsky Krai": [
+          "95.167.68.216/29",
+          "95.167.72.48/30"
+        ],
+        "FSKN of Vologda": [
+          "95.167.76.160/27"
+        ],
+        "FSKN of Yuzhno-Sakhalinsk": [
+          "195.239.251.48/29"
+        ],
+        "Federal Compulsory Medical Insurance Fund": [
+          "91.226.250.0/24"
+        ],
+        "Federal Protective Service": [
+          "95.173.128.0/19"
+        ],
+        "Federal Tax Service": [
+          "217.107.209.0/24",
+          "81.176.235.0/27"
+        ],
+        "General Radio Frequency Centre": [
+          "194.165.22.0/23"
+        ],
+        "GlavNIVZ": [
+          "46.29.152.0/21"
+        ],
+        "GosNIIAS": [
+          "193.47.146.0/24"
+        ],
+        "Goznak": [
+          "91.227.32.0/24"
+        ],
+        "Informregistr": [
+          "62.117.66.160/29"
+        ],
+        "Investigative Committee": [
+          "92.39.133.160/28"
+        ],
+        "Karelia tax service": [
+          "217.106.115.168/29"
+        ],
+        "Khanty-Mansiysk tax service": [
+          "217.20.86.232/29",
+          "217.20.86.240/28"
+        ],
+        "Kirov tax service": [
+          "217.106.150.88/29"
+        ],
+        "Lipetsk duma": [
+          "195.34.233.32/29"
+        ],
+        "MVD": [
+          "194.8.70.0/23"
+        ],
+        "Magadan duma": [
+          "89.28.253.168/29"
+        ],
+        "Maykop tax service": [
+          "213.59.122.72/29"
+        ],
+        "Medical center of EMERCOM": [
+          "217.148.216.156/30"
+        ],
+        "Minintry of Justice": [
+          "87.226.239.180/30",
+          "87.226.156.64/26"
+        ],
+        "Ministry of Culture": [
+          "194.190.9.0/24"
+        ],
+        "Ministry of Finance": [
+          "195.80.224.0/24"
+        ],
+        "Ministry of Finance of Rostov": [
+          "217.106.95.112/28"
+        ],
+        "Ministry of Foreign Affairs": [
+          "194.85.152.24/30"
+        ],
+        "Ministry of communication": [
+          "213.243.88.0/24",
+          "212.69.117.192/27",
+          "195.230.86.64/26"
+        ],
+        "Ministry of education": [
+          "82.179.86.32/27"
+        ],
+        "Mordovia tax service": [
+          "217.107.5.8/29"
+        ],
+        "Moscow UI EMERCOM (Fakeljnyy)": [
+          "94.79.35.248/29"
+        ],
+        "Moscow UI EMERCOM (Ibragimova)": [
+          "94.79.34.208/29"
+        ],
+        "Moscow UI EMERCOM (Nelidovkaya)": [
+          "94.79.34.184/29"
+        ],
+        "Moscow UI EMERCOM (Reutovskaya)": [
+          "94.79.34.200/29"
+        ],
+        "Moscow UI EMERCOM (Tvardovskogo, 16)": [
+          "94.79.34.240/29"
+        ],
+        "Moscow city duma": [
+          "212.11.130.0/23",
+          "212.11.128.0/23",
+          "87.245.157.240/29",
+          "94.79.48.0/25",
+          "77.108.103.144/29",
+          "62.33.63.144/28"
+        ],
+        "Moscow interregional transport prosecutor's office": [
+          "178.209.115.248/29"
+        ],
+        "Nizhny Novgorod tax service": [
+          "213.177.111.0/24",
+          "82.208.81.0/24"
+        ],
+        "Novgorod tax service": [
+          "213.59.91.48/29"
+        ],
+        "Novocherkassk Rospotrebnadzor": [
+          "87.117.21.80/29"
+        ],
+        "Orenburg tax service": [
+          "217.107.5.16/29"
+        ],
+        "Orlovka Rospotrebnadzor": [
+          "87.117.21.48/29",
+          "87.117.21.56/29"
+        ],
+        "Perm EMERCOM": [
+          "83.219.23.48/29",
+          "83.219.5.248/29",
+          "83.219.25.0/29",
+          "90.150.176.188/30",
+          "90.150.176.64/30"
+        ],
+        "Perm Rospotrebnadzor": [
+          "212.120.184.56/29",
+          "212.120.190.240/29",
+          "212.120.191.248/29",
+          "212.120.191.120/29",
+          "83.219.6.72/29",
+          "83.219.25.112/29",
+          "90.150.189.216/29",
+          "212.120.189.224/29",
+          "90.150.189.168/29",
+          "90.150.189.224/29",
+          "90.150.189.208/29",
+          "90.150.189.160/29",
+          "90.150.189.184/29",
+          "90.150.189.248/29",
+          "90.150.189.200/29",
+          "90.150.189.144/29",
+          "90.150.189.192/29",
+          "90.150.189.128/29",
+          "90.150.189.152/29",
+          "90.150.189.136/29",
+          "90.150.189.176/29",
+          "90.150.189.232/29"
+        ],
+        "Perm duma": [
+          "90.150.176.52/30"
+        ],
+        "Perm tax service": [
+          "213.59.59.16/29"
+        ],
+        "Prosecutor in Far East": [
+          "85.114.93.88/29"
+        ],
+        "Prosecutor of the Primorsky district": [
+          "82.162.157.64/28",
+          "86.102.100.48/28",
+          "86.102.72.240/28",
+          "77.35.76.80/28",
+          "82.162.126.96/28",
+          "82.162.80.192/28",
+          "81.2.1.0/28",
+          "82.162.72.208/28"
+        ],
+        "Pskov tax service": [
+          "213.59.91.128/27",
+          "213.59.91.176/28"
+        ],
+        "RC for CS at the MOFA": [
+          "77.41.159.0/24",
+          "194.85.30.0/24"
+        ],
+        "RSNet": [
+          "194.226.80.0/20",
+          "194.226.116.0/22",
+          "194.226.127.0/24"
+        ],
+        "Remand prison №3, Cherepovets": [
+          "37.28.161.48/30"
+        ],
+        "Rosatom": [
+          "88.151.200.0/21"
+        ],
+        "Rospatent": [
+          "195.208.85.192/26"
+        ],
+        "Rospotrebnadzor": [
+          "213.234.11.4/30",
+          "217.149.182.120/30",
+          "188.247.40.60/30",
+          "188.247.36.160/29",
+          "92.39.107.60/30"
+        ],
+        "Rospotrebnadzor of Anragsky": [
+          "213.234.8.8/30"
+        ],
+        "Rospotrebnadzor of Belaja Kalitva": [
+          "87.117.21.16/29"
+        ],
+        "Rospotrebnadzor of Kamchatka": [
+          "77.82.124.112/29"
+        ],
+        "Rospotrebnadzor of Kamensk-Shaxtinsk": [
+          "87.117.21.32/29"
+        ],
+        "Rospotrebnadzor of Millerovo": [
+          "87.117.21.40/29"
+        ],
+        "Rospotrebnadzor of Nizhny Novgorod Oblast": [
+          "89.109.7.176/29"
+        ],
+        "Rospotrebnadzor of Shakhty": [
+          "87.117.21.64/29"
+        ],
+        "Rospotrebnadzor of Vyoshenskaya stanitsa": [
+          "87.117.21.72/29"
+        ],
+        "Rospotrebnadzor of railway transport": [
+          "85.236.29.160/27"
+        ],
+        "Rostov Rospotrebnadzor": [
+          "87.117.23.128/28",
+          "87.117.20.128/28",
+          "87.117.20.64/27",
+          "87.117.20.96/27",
+          "87.117.46.232/29"
+        ],
+        "Rostov tax service": [
+          "213.59.122.88/29"
+        ],
+        "Rublevo-Uspenskiy Therapeutic Complex": [
+          "91.239.228.0/23"
+        ],
+        "Ryazan Rospotrebnadzor": [
+          "95.167.4.168/29"
+        ],
+        "Samara Duma": [
+          "46.20.70.160/28"
+        ],
+        "Samara tax service": [
+          "217.107.5.40/29"
+        ],
+        "Saratov tax service": [
+          "217.107.5.24/29"
+        ],
+        "Smolensk duma": [
+          "94.25.90.240/29",
+          "92.241.99.224/28"
+        ],
+        "Special Communication Service": [
+          "78.108.192.0/21"
+        ],
+        "TSNIIE": [
+          "89.175.8.68/30"
+        ],
+        "Taganrog Rospotrebnadzor": [
+          "87.117.18.144/29",
+          "93.178.104.64/30",
+          "93.178.104.68/30"
+        ],
+        "Tatarstan tax service": [
+          "213.59.59.128/29"
+        ],
+        "Tax service of Privolzhsky district": [
+          "217.106.150.72/29"
+        ],
+        "Tomsk tax service": [
+          "217.106.147.0/29",
+          "213.24.76.0/23"
+        ],
+        "Treasury of Kemerovo": [
+          "91.198.38.0/24"
+        ],
+        "Treasury of Vladikavkaz": [
+          "217.106.203.32/29",
+          "217.106.93.192/26"
+        ],
+        "Tsimlyansky Rospotrebnadzor": [
+          "87.117.21.24/29"
+        ],
+        "Tyumen tax service": [
+          "213.59.59.144/29"
+        ],
+        "United editorial of MVD": [
+          "213.171.40.80/29"
+        ],
+        "VEI": [
+          "194.190.89.0/24"
+        ],
+        "VGTRK": [
+          "80.247.35.0/24",
+          "80.247.32.0/24",
+          "80.247.45.0/26",
+          "80.247.45.64/27",
+          "80.247.45.0/26",
+          "80.247.45.64/27",
+          "193.105.14.0/24"
+        ],
+        "VNIIGeosystem": [
+          "91.236.22.0/23",
+          "194.226.22.0/23"
+        ],
+        "Vladimir Rospotrebnadzor": [
+          "84.53.210.144/28"
+        ],
+        "Volgodonsk Rospotrebnadzor": [
+          "87.117.21.0/29"
+        ],
+        "Volgograd tax service": [
+          "217.106.203.72/29"
+        ],
+        "Vologda tax service": [
+          "213.24.160.0/28"
+        ],
+        "Voronezh duma": [
+          "195.98.73.56/29"
+        ],
+        "Zheleznogorsk Mining Chemical Combine": [
+          "94.199.64.0/21"
+        ]
+      }
     }
   ]
 }
