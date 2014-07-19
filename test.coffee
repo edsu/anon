@@ -8,7 +8,7 @@ isIpInAnyRange = anon.isIpInAnyRange
 
 describe 'anon', ->
 
-  describe "compareIps", ->
+  describe "compareIps ipv4", ->
 
     it 'equal', ->
       assert.equal 0, compareIps '1.1.1.1', '1.1.1.1'
@@ -16,6 +16,15 @@ describe 'anon', ->
       assert.equal 1, compareIps '1.1.1.2', '1.1.1.1'
     it 'less than', ->
       assert.equal -1, compareIps '1.1.1.1', '1.1.1.2'
+
+  describe "compareIps ipv6", ->
+
+    it 'equal', ->
+      assert.equal 0, compareIps '2601:8:b380:3f3:540b:fdbf:bc5:a6bf', '2601:8:b380:3f3:540b:fdbf:bc5:a6bf'
+    it 'greater than', ->
+      assert.equal 0, compareIps '2601:8:b380:3f3:540b:fdbf:bc5:a6bf', '2600:8:b380:3f3:540b:fdbf:bc5:a6bf'
+    it 'less than', ->
+      assert.equal 0, compareIps '2600:8:b380:3f3:540b:fdbf:bc5:a6bf', '2601:8:b380:3f3:540b:fdbf:bc5:a6bf'
 
   describe 'isIpInRange', ->
 

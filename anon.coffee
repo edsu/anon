@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 
+ipv6          = require 'ipv6'
 Twit          = require 'twit'
-{Netmask}     = require 'netmask'
 minimist      = require 'minimist'
 {WikiChanges} = require 'wikichanges'
 Mustache      = require 'mustache'
@@ -11,10 +11,11 @@ argv = minimist process.argv.slice(2), default:
   config: './config.json'
 
 ipToInt = (ip) ->
-  octets = (parseInt(s) for s in ip.split('.'))
-  result = 0
-  result += n * Math.pow(255, i) for n, i in octets.reverse()
-  result
+  if ':' in ip
+    a = new ipv6.v6.Address(ip)
+  else
+    a = new ipv6.v4.Address(ip)
+  return a.bigInteger().intValue()
 
 compareIps = (ip1, ip2) ->
   q1 = ipToInt(ip1)
@@ -30,7 +31,9 @@ isIpInRange = (ip, block) ->
   if Array.isArray block
     compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
   else
-    new Netmask(block).contains ip
+    a = new ipv6.v4.Address(ip)
+    b = new ipv6.v4.Address(block)
+    a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
   blocks.filter((block) -> isIpInRange(ip, block)).length > 0
