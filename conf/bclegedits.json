@@ -1,0 +1,19 @@
+{
+  "nick": "bclegedits",
+  "accounts": [
+    {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": "",
+      "template": "{{page}} Wikipedia article edited anonymously from the {{name}} {{&url}}",
+      "ranges": {
+        "Legislative Assembly of BC": [
+          "198.162.124.0/23",
+          "198.162.126.0/24",
+          ["207.194.253.1", "207.194.253.30"]
+        ]
+      }
+    }
+  ]
+}
