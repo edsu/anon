@@ -18,9 +18,7 @@ ipToInt = (ip) ->
   i.bigInteger()
 
 compareIps = (ip1, ip2) ->
-  i1 = ipToInt(ip1)
-  i2 = ipToInt(ip2)
-  r = i1.compareTo(i2)
+  r = ipToInt(ip1).compareTo(ipToInt(ip2))
   if r == 0
     0
   else if r > 0
