@@ -13,7 +13,7 @@ argv = minimist process.argv.slice(2), default:
 ipToInt = (ip) ->
   octets = (parseInt(s) for s in ip.split('.'))
   result = 0
-  result += n * Math.pow(255, i) for n, i in octets.reverse()
+  result += n * Math.pow(256, i) for n, i in octets.reverse()
   result
 
 compareIps = (ip1, ip2) ->

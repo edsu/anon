@@ -52,6 +52,7 @@ describe 'anon', ->
 
     it 'false positive not in ranges', ->
       assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
+      assert.isFalse isIpInAnyRange '39.255.255.148', [["40.0.0.0", "40.127.255.255"], ["40.144.0.0", "40.255.255.255"]]
 
   describe 'getStatus', ->
 
