@@ -12,20 +12,21 @@ argv = minimist process.argv.slice(2), default:
 
 ipToInt = (ip) ->
   if ':' in ip
-    a = new ipv6.v6.Address(ip)
+    i = new ipv6.v6.Address(ip)
   else
-    a = new ipv6.v4.Address(ip)
-  return a.bigInteger().intValue()
+    i = new ipv6.v4.Address(ip)
+  i.bigInteger()
 
 compareIps = (ip1, ip2) ->
-  q1 = ipToInt(ip1)
-  q2 = ipToInt(ip2)
-  if q1 == q2
+  i1 = ipToInt(ip1)
+  i2 = ipToInt(ip2)
+  r = i1.compareTo(i2)
+  if r == 0
     0
-  else if q1 < q2
-    -1
-  else
+  else if r > 0
     1
+  else
+    -1
 
 isIpInRange = (ip, block) ->
   if Array.isArray block
@@ -81,6 +82,7 @@ inspect = (account, edit) ->
       for name, ranges of account.ranges
         if isIpInAnyRange edit.user, ranges
           status = getStatus edit, name, account.template
+          console.log edit.user
           tweet account, status
 
 main = ->

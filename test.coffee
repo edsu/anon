@@ -12,8 +12,10 @@ describe 'anon', ->
 
     it 'equal', ->
       assert.equal 0, compareIps '1.1.1.1', '1.1.1.1'
+
     it 'greater than', ->
       assert.equal 1, compareIps '1.1.1.2', '1.1.1.1'
+
     it 'less than', ->
       assert.equal -1, compareIps '1.1.1.1', '1.1.1.2'
 
@@ -21,10 +23,12 @@ describe 'anon', ->
 
     it 'equal', ->
       assert.equal 0, compareIps '2601:8:b380:3f3:540b:fdbf:bc5:a6bf', '2601:8:b380:3f3:540b:fdbf:bc5:a6bf'
+
     it 'greater than', ->
-      assert.equal 0, compareIps '2601:8:b380:3f3:540b:fdbf:bc5:a6bf', '2600:8:b380:3f3:540b:fdbf:bc5:a6bf'
+      assert.equal 1, compareIps '2600:8:b380:3f3:540b:fdbf:bc5:a6bf', '2600:8:b380:3f3:540b:fdbf:bc5:a6be'
+
     it 'less than', ->
-      assert.equal 0, compareIps '2600:8:b380:3f3:540b:fdbf:bc5:a6bf', '2601:8:b380:3f3:540b:fdbf:bc5:a6bf'
+      assert.equal -1, compareIps '2600:8:b380:3f3:540b:fdbf:bc5:a6be', '2601:8:b380:3f3:540b:fdbf:bc5:a6bf'
 
   describe 'isIpInRange', ->
 
@@ -43,6 +47,9 @@ describe 'anon', ->
     it 'ip is not in cidr range', ->
       assert.isFalse isIpInRange '123.123.123.123', '123.123.123.122/32'
 
+    it 'ipv6 in range', ->
+      assert.isTrue isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
+
   describe 'isIpInAnyRange', ->
 
     r1 = ['1.1.1.0', '1.1.1.5']
@@ -57,7 +64,7 @@ describe 'anon', ->
     it 'ip not in any ranges', ->
       assert.isFalse isIpInAnyRange '1.1.1.6', [r1, r2]
       
-  describe 'IP Range Error (#12)', ->
+  describe 'ip range error (#12)', ->
 
     it 'false positive not in ranges', ->
       assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
