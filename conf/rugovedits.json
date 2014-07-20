@@ -486,9 +486,6 @@
         "Agency of Special Construction of the FSB": [
           "195.42.75.8/29"
         ],
-        "FSKN of Altai": [
-          "95.167.162.236/30"
-        ],
         "Altai tax service": [
           "217.107.45.0/29"
         ],
@@ -587,6 +584,9 @@
           "92.50.198.72/30",
           "193.164.232.128/27"
         ],
+        "FSKN of Altai": [
+          "95.167.162.236/30"
+        ],
         "FSKN of Amur oblast": [
           "95.167.157.156/30"
         ],
@@ -682,6 +682,7 @@
           "195.230.86.64/26"
         ],
         "Ministry of education": [
+          "193.27.214.0/23",
           "82.179.86.32/27"
         ],
         "Mordovia tax service": [
