@@ -3,8 +3,8 @@
 ipv6          = require 'ipv6'
 Twit          = require 'twit'
 minimist      = require 'minimist'
-{WikiChanges} = require 'wikichanges'
 Mustache      = require 'mustache'
+{WikiChanges} = require 'wikichanges'
 
 argv = minimist process.argv.slice(2), default:
   verbose: false
