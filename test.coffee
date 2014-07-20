@@ -50,6 +50,15 @@ describe 'anon', ->
     it 'ipv6 in range', ->
       assert.isTrue isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
 
+    it 'ipv6 not in range', ->
+      assert.isFalse isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:1000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
+
+    it 'ipv4 in ipv6 range', ->
+      assert.isTrue isIpInRange '127.0.0.1', ['0000:0000:0000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
+
+    it 'ipv4 not in ipv6 range', ->
+      assert.isFalse isIpInRange '127.0.0.1', ['0000:0000:F000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
+
   describe 'isIpInAnyRange', ->
 
     r1 = ['1.1.1.0', '1.1.1.5']
@@ -87,5 +96,3 @@ describe 'anon', ->
       template = "{{page}} edited by {{name}} {{&url}}"
       result = getStatus edit, name, template
       assert.isTrue result.length <= 140
-
-
