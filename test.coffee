@@ -59,6 +59,13 @@ describe 'anon', ->
     it 'ipv4 not in ipv6 range', ->
       assert.isFalse isIpInRange '127.0.0.1', ['0000:0000:F000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
 
+    it 'ipv6 in ipv4 cidr', ->
+      assert.isTrue isIpInRange '0:0:0:0:0:ffff:8e33:1', '142.51.0.0/16'
+
+    it 'ipv6 not in ipv4 cidr', ->
+      assert.isFalse isIpInRange '2A02:908:DF50:2380:74c0:e1e1:7039:2281', '142.51.0.0/16'
+
+
   describe 'isIpInAnyRange', ->
 
     r1 = ['1.1.1.0', '1.1.1.5']
@@ -73,12 +80,6 @@ describe 'anon', ->
     it 'ip not in any ranges', ->
       assert.isFalse isIpInAnyRange '1.1.1.6', [r1, r2]
       
-  describe 'ip range error (#12)', ->
-
-    it 'false positive not in ranges', ->
-      assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
-      assert.isFalse isIpInAnyRange '39.255.255.148', [["40.0.0.0", "40.127.255.255"], ["40.144.0.0", "40.255.255.255"]]
-
   describe 'getStatus', ->
 
     it 'works', ->
@@ -97,3 +98,9 @@ describe 'anon', ->
       template = "{{page}} edited by {{name}} {{&url}}"
       result = getStatus edit, name, template
       assert.isTrue result.length <= 140
+
+  describe 'ip range error (#12)', ->
+
+    it 'false positive not in ranges', ->
+      assert.isFalse isIpInAnyRange '199.19.250.20', [["199.19.16.0", "199.19.27.255"], ["4.42.247.224", "4.42.247.255"]]
+      assert.isFalse isIpInAnyRange '39.255.255.148', [["40.0.0.0", "40.127.255.255"], ["40.144.0.0", "40.255.255.255"]]

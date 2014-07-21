@@ -10,11 +10,14 @@ argv = minimist process.argv.slice(2), default:
   verbose: false
   config: './config.json'
 
-ipToInt = (ip) ->
+address = (ip) ->
   if ':' in ip
     i = new ipv6.v6.Address(ip)
   else
     i = new ipv6.v4.Address(ip)
+
+ipToInt = (ip) ->
+  i = address(ip)
   i.bigInteger()
 
 compareIps = (ip1, ip2) ->
@@ -30,7 +33,7 @@ isIpInRange = (ip, block) ->
   if Array.isArray block
     compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
   else
-    a = new ipv6.v4.Address(ip)
+    a = address(ip)
     b = new ipv6.v4.Address(block)
     a.isInSubnet(b)
 
