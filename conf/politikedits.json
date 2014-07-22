@@ -1,8 +1,5 @@
-{  
+{
   "ranges": {
-    "Bundesrechenzentrum": [
-      ["85.158.226.128", "85.158.226.159"]
-    ],
     "Parlament": [
       "161.110.0.0/16"
     ],
@@ -14,33 +11,6 @@
     ],
     "Bundeskanzleramt": [
       "78.41.144.0/23"
-    ],
-    "Statistik Austria": [
-      "193.170.0.0/15"
-    ],
-    "Außenministerium": [
-      "80.120.0.0/14"
-    ],
-    "Sozialministerium": [
-      "194.232.0.0/16"
-    ],
-    "Bildungsministerium": [
-      "85.158.224.0/21"
-    ],
-    "Familienministerium": [
-      "194.37.72.0/21"
-    ],
-    "Verkehrsministerium": [
-      "193.170.0.0/15"
-    ],
-    "Gesundheitsministerium": [
-      "194.232.0.0/16"
-    ],
-    "Justizministerium": [
-      "193.176.247.0/24"
-    ],
-    "Verteidigungsminsiterium": [
-      "193.170.0.0/15"
     ],
     "Landwirtschaftsministerium": [
       "194.37.72.0/21"
