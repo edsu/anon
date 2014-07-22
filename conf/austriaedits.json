@@ -27,17 +27,11 @@
     "Familienministerium": [
       "194.37.72.0/21"
     ],
-    "Verkehrsministerium": [
-      "193.170.0.0/15"
-    ],
     "Gesundheitsministerium": [
       "194.232.0.0/16"
     ],
     "Justizministerium": [
       "193.176.247.0/24"
-    ],
-    "Verteidigungsminsiterium": [
-      "193.170.0.0/15"
     ],
     "Landwirtschaftsministerium": [
       "194.37.72.0/21"
