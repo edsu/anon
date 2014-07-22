@@ -1,0 +1,28 @@
+{
+    "nick": "un_edits",
+    "accounts": [
+        {
+            "consumer_key": "",
+            "consumer_secret": "",
+            "access_token": "",
+            "access_token_secret": "",
+            "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
+            "ranges": {
+                "UN HQ": [
+                    [
+                        "157.150.0.0",
+                        "157.150.255.255"
+                    ]
+                ],
+                "UN Office Geneva": [
+                    [
+                        "193.239.220.0",
+                        "139.239.220.255"
+                    ]
+                ]
+            }
+        }
+    ]
+}
+
+
