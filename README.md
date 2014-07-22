@@ -10,7 +10,7 @@ named IP ranges and will tweet when it notices one.  It was inspired by
 
 If you are curious the default IP ranges for the US Congress in the `config.json.template` file came from [GovTrack](https://github.com/govtrack/govtrack.us-web/blob/master/website/middleware.py).  You can learn more about the significance of Congressional edits to Wikipedia [here](https://en.wikipedia.org/wiki/U.S._Congressional_staff_edits_to_Wikipedia) and [here](https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits).
 
-## Running
+## Install
 
 To run anon you will need to:
 
@@ -24,7 +24,12 @@ To run anon you will need to:
 app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
+
+## Run
+
+
 1. `./anon.coffee` (you may want to run this in a screen or tmux session)
+1. On linux to run in the background run `./anon.coffee &`
 1. have some :coffee: and wait
 
 ### IP Ranges
