@@ -69,8 +69,6 @@ isRepeat = (edit) ->
   k = "#{edit.wikipedia}"
   v = "#{edit.page}:#{edit.user}"
   r = lastChange[k] == v
-  if r
-    console.log "found repeat:", k, v
   lastChange[k] = v
   return r
 
