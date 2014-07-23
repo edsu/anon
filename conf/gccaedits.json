@@ -51,6 +51,15 @@
                 "205.189.7.255"
             ]
         ],
+        "Canadian Broadcasting Corporation": [
+            [
+                "159.33.160.0/19",
+                "159.33.166.0/24",
+                "159.33.175.0/24",
+                "159.33.0.0/19",
+                "159.33.10.0/24"
+            ]
+        ],
         "Canadian Department of National Defence": [
             [
                 "131.132.0.0",
@@ -101,6 +110,11 @@
         ],
         "Canadian Hydrographic Service": [
             "204.187.48.0/24"
+        ],
+        "Canadian Museum of Civilization": [
+            [
+                "204.19.14.0/24"
+            ]
         ],
         "Canadian Space Agency": [
             "142.74.1.0/24",
