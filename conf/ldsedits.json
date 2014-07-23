@@ -1,0 +1,23 @@
+{
+  "nick": "LDSedits",
+  "accounts": [
+      {
+	  "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
+	  "ranges": {
+	      "the LDS Church": [ 
+		  "216.49.176.0/21",
+		  "216.49.184.0/23",
+		  "216.49.184.0/21",
+		  "216.49.186.0/24",
+		  "216.49.189.0/24"
+	      ],
+	      "Deseret Digital Media": [ 
+		  "64.147.128.0/19",
+		  "199.104.95.0/24"
+	      ]
+	  }
+      }
+  ]
+}
+
+

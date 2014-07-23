@@ -1,0 +1,22 @@
+{
+  "ranges": {
+    "Parlament": [
+      "161.110.0.0/16"
+    ],
+    "Bundesministerium für Inneres": [
+      "78.41.149.0/24",
+      "78.41.148.0/24",
+      "193.187.2.0/23",
+      "193.187.3.0/24"
+    ],
+    "Bundeskanzleramt": [
+      "78.41.144.0/23"
+    ],
+    "Landwirtschaftsministerium": [
+      "194.37.72.0/21"
+    ],
+    "Wirtschaftsministerium": [
+      "144.65.0.0/16"
+    ]
+  }
+}

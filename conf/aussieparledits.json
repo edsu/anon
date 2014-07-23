@@ -45,10 +45,6 @@
         ],
         "SA Office of Chief Information Officer": [
           ["203.6.146.0", "203.6.147.255"]
-        ],
-        "Northern Territory Government": [
-          ["150.191.0.0", "150.191.255.255"],
-          ["155.205.0.0", "155.205.255.255"]
         ]
 
       },
