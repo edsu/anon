@@ -8,7 +8,7 @@ named IP ranges and will tweet when it notices one.  It was inspired by
 [@parliamentedits](https://twitter.com/parliamentedits) and is used to make
 [@congressedits](https://twitter.com/congressedits) available.
 
-If you are curious the default IP ranges for the US Congress in the `config.json.template` file came from [GovTrack](https://github.com/govtrack/govtrack.us-web/blob/master/website/middleware.py). You can learn more about the significance of Congressional edits to Wikipedia [here](https://en.wikipedia.org/wiki/U.S._Congressional_staff_edits_to_Wikipedia) and [here](https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits).
+If you are curious, the default IP ranges for the US Congress in the `config.json.template` file came from [GovTrack](https://github.com/govtrack/govtrack.us-web/blob/master/website/middleware.py). You can learn more about the significance of Congressional edits to Wikipedia [here](https://en.wikipedia.org/wiki/U.S._Congressional_staff_edits_to_Wikipedia) and [here](https://en.wikipedia.org/wiki/Wikipedia:Congressional_staffer_edits).
 
 ## Run
 
@@ -38,7 +38,7 @@ or with an array of start/end IP addresses:
 
     ["143.231.0.0", "143.231.255.255"]
 
-These two are equivalent, but the former is a bit faster, and easier to read
+These two are equivalent, but the former is a bit faster, and easier to read.
 The latter is convenient if your range is difficult to express using a netmask.
 
 ### Transparency
@@ -104,7 +104,7 @@ but not actually sent to Twitter.
     ./anon.coffee --noop
 
 If you would like to see all the change activity (URLs for each change) to test
-that it is actually listening use the `--verbose` flag:
+that it is actually listening, use the `--verbose` flag:
 
     ./anon.coffee --verbose
 
@@ -112,7 +112,7 @@ that it is actually listening use the `--verbose` flag:
 
 By default anon will look for a `config.json` file in your current working
 directory. If you would like to specify the location of the configuration
-file use the `--config` parameter:
+file, use the `--config` parameter:
 
     ./anon.coffee --config test.config
 
