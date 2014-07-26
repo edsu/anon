@@ -1,25 +1,18 @@
 {
-  "nick": "pentagonedits",
-  "accounts": [
-    {
-      "ranges": {
-        "PENTAGON/Navy NIC": [
-          "199.10.240.0/24"
-        ],
-        "PENTNET1/USAISC HQ": [
-          "141.116.0.0/16"
-        ],
-        "PENT-IGNET1/USAISC HQ": [
-          "199.10.40.0/23",
-          "199.10.36.0/22"
-        ],
-        "NETBLK-PENTUCLS/USAISC HQ": [
-          "199.114.32.0/19"
-        ],
-        "PENT-TEST/Navy NIC": [
-          "199.10.62.0/24"
-        ]
-      }
-    }
+  "NETBLK-PENTUCLS/USAISC HQ": [
+    "199.114.32.0/19"
+  ], 
+  "PENT-IGNET1/USAISC HQ": [
+    "199.10.40.0/23", 
+    "199.10.36.0/22"
+  ], 
+  "PENTAGON/Navy NIC": [
+    "199.10.240.0/24"
+  ], 
+  "PENT-TEST/Navy NIC": [
+    "199.10.62.0/24"
+  ], 
+  "PENTNET1/USAISC HQ": [
+    "141.116.0.0/16"
   ]
 }

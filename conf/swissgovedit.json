@@ -1,11 +1,4 @@
 {
-  "nick": "wikibotswissgovedit",
-  "consumer_key": "",
-  "consumer_secret": "",
-  "access_token": "",
-  "access_token_secret": "",
-  "template": "{{page}} wurde anonym aus dem Netz {{name}} editiert {{&url}}",
-  "ranges": {
     "der Schweizer Regierung BIT": [
       "131.102.0.0/16",
       "149.126.48.0/21",
@@ -16,4 +9,3 @@
       "91.226.202.0/24"
     ]
   }
-}

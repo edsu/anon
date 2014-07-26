@@ -1,32 +1,16 @@
 {
-  "nick": "RoGovEdits",
-  "accounts": [
-    {
-      "consumer_key": "",
-      "consumer_secret": "",
-      "access_token": "",
-      "access_token_secret": "",
-      "template": "Articolul Wikipedia {{page}} a fost modificat de către {{name}} {{&url}}",
-      "ranges": {
-        "Guvernul României": [
-          "213.177.0.0/19",
-          "193.151.28.0/22",
-          "85.120.75.0/24",
-          "81.181.207.0/24",
-          "217.156.52.0/24",
-          "85.120.166.0/24",
-          "92.87.192.0/24",
-          "85.120.159.0/24",
-          "193.226.121.0/24"
-        ],
-        "Primăria Municipiului Bucureşti": [
-          "91.212.70.0/24"
-        ]
-      },
-      "whitelist": {
-      }
-    }
+  "Prim\u0103ria Municipiului Bucure\u015fti": [
+    "91.212.70.0/24"
+  ], 
+  "Guvernul Rom\u00e2niei": [
+    "213.177.0.0/19", 
+    "193.151.28.0/22", 
+    "85.120.75.0/24", 
+    "81.181.207.0/24", 
+    "217.156.52.0/24", 
+    "85.120.166.0/24", 
+    "92.87.192.0/24", 
+    "85.120.159.0/24", 
+    "193.226.121.0/24"
   ]
 }
-
-

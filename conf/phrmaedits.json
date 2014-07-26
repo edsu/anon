@@ -1,11 +1,4 @@
 {
-  "nick": "phrmaedits",
-  "consumer_key": "",
-  "consumer_secret": "",
-  "access_token": "",
-  "access_token_secret": "",
-  "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
-  "ranges": {
     "PhRMA in MA": [
       ["70.88.212.192", "70.88.212.199"]
     ],
@@ -189,4 +182,3 @@
       ["64.186.173.16", "64.186.173.23"]
     ]
   }
-}

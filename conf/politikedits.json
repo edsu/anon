@@ -1,6 +1,4 @@
-{
-  "ranges": {
-    "Parlament": [
+{    "Parlament": [
       "161.110.0.0/16"
     ],
     "Bundesministerium für Inneres": [
@@ -19,4 +17,3 @@
       "144.65.0.0/16"
     ]
   }
-}
