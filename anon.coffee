@@ -36,9 +36,18 @@ isIpInAnyRange = (ip, blocks) ->
   blocks.filter((block) -> isIpInRange(ip, block)).length > 0
 
 getConfig = (path) ->
+  config = loadJson path
+  # see if ranges are externally referenced as a separate .json files
+  if config.accounts
+    for account in config.accounts
+      if typeof account.ranges == 'string'
+        account.ranges = loadJson account.ranges
+  config
+
+loadJson = (path) ->
   if path[0] != '/' and path[0..1] != './'
     path = './' + path
-  require(path)
+  require path
 
 getStatusLength = (edit, name, template) ->
   # returns length of the tweet based on shortened url
