@@ -48,7 +48,7 @@ describe 'anon', ->
       assert.isFalse isIpInRange '123.123.123.123', '123.123.123.122/32'
 
     it 'ipv6 in range', ->
-      assert.isTrue isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
+      assert.isTrue isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:0000', '0000:0000:0000:0000:0000:0000:0000:0002']
 
     it 'ipv6 not in range', ->
       assert.isFalse isIpInRange '0000:0000:0000:0000:0000:0000:0000:0001', ['0000:0000:0000:0000:0000:0000:0000:1000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
@@ -59,12 +59,14 @@ describe 'anon', ->
     it 'ipv4 not in ipv6 range', ->
       assert.isFalse isIpInRange '127.0.0.1', ['0000:0000:F000:0000:0000:0000:0000:0000', 'FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF']
 
+    it 'ipv6 in ipv6 cidr', ->
+      assert.isTrue isIpInRange '0000:0000:0000:0000:0000:0000:1000:0005', '0000:0000:0000:0000:0000:0000:1000:0000/112'
+
     it 'ipv6 in ipv4 cidr', ->
-      assert.isTrue isIpInRange '0:0:0:0:0:ffff:8e33:1', '142.51.0.0/16'
+      assert.isTrue isIpInRange '0:0:0:0:0:0:8e33:1', '142.51.0.0/16'
 
     it 'ipv6 not in ipv4 cidr', ->
       assert.isFalse isIpInRange '2A02:908:DF50:2380:74c0:e1e1:7039:2281', '142.51.0.0/16'
-
 
   describe 'isIpInAnyRange', ->
 

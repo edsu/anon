@@ -34,7 +34,9 @@ isIpInRange = (ip, block) ->
     compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
   else
     a = address(ip)
-    b = new ipv6.v4.Address(block)
+    b = address(block)
+    if not a.v4 and b.v4
+      b = new ipv6.v6.Address('::ffff:' + block)
     a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
