@@ -35,9 +35,11 @@ isIpInRange = (ip, block) ->
   else
     a = address(ip)
     b = address(block)
+    # if we are comparing a v6 address to an v4 cidr range we need to 
+    # convert the v4 cidr to a v6 cidr
     if not a.v4 and b.v4
-      mask = 96 + b.subnetMask
-      block = '::' + b.toV6Group() + "/" + mask
+      subnetMask = 96 + b.subnetMask
+      block = '::' + b.toV6Group() + "/" + subnetMask
       b = new ipv6.v6.Address(block)
     a.isInSubnet(b)
 
