@@ -36,7 +36,9 @@ isIpInRange = (ip, block) ->
     a = address(ip)
     b = address(block)
     if not a.v4 and b.v4
-      b = new ipv6.v6.Address('::ffff:' + block)
+      mask = 96 + b.subnetMask
+      block = '::' + b.toV6Group() + "/" + mask
+      b = new ipv6.v6.Address(block)
     a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
