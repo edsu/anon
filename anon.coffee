@@ -75,9 +75,17 @@ getStatus = (edit, name, template) ->
     url: edit.url
     page: page
 
-tweet = (account, status) ->
+lastChange = {}
+isRepeat = (edit) ->
+  k = "#{edit.wikipedia}"
+  v = "#{edit.page}:#{edit.user}"
+  r = lastChange[k] == v
+  lastChange[k] = v
+  return r
+
+tweet = (account, status, edit) ->
   console.log status
-  unless argv.noop
+  unless argv.noop or (account.throttle and isRepeat(edit))
     twitter = new Twit account
     twitter.post 'statuses/update', status: status, (err) ->
       console.log err if err
@@ -89,13 +97,12 @@ inspect = (account, edit) ->
     if account.whitelist and account.whitelist[edit.wikipedia] \
         and account.whitelist[edit.wikipedia][edit.page]
       status = getStatus edit, edit.user, account.template
-      tweet account, status
+      tweet account, status, edit
     else if account.ranges and edit.anonymous
       for name, ranges of account.ranges
         if isIpInAnyRange edit.user, ranges
           status = getStatus edit, name, account.template
-          console.log edit.user
-          tweet account, status
+          tweet account, status, edit
 
 main = ->
   config = getConfig argv.config
