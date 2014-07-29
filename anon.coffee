@@ -15,6 +15,9 @@ address = (ip) ->
     i = new ipv6.v6.Address(ip)
   else
     i = new ipv6.v4.Address(ip)
+    subnetMask = 96 + i.subnetMask
+    ip = '::ffff:' + i.toV6Group() + "/" + subnetMask
+    i = new ipv6.v6.Address(ip)
 
 ipToInt = (ip) ->
   i = address(ip)
@@ -35,12 +38,6 @@ isIpInRange = (ip, block) ->
   else
     a = address(ip)
     b = address(block)
-    # if we are comparing a v6 address to an v4 cidr range we need to 
-    # convert the v4 cidr to a v6 cidr
-    if not a.v4 and b.v4
-      subnetMask = 96 + b.subnetMask
-      block = '::' + b.toV6Group() + "/" + subnetMask
-      b = new ipv6.v6.Address(block)
     a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
@@ -61,7 +58,6 @@ loadJson = (path) ->
   require path
 
 getStatusLength = (edit, name, template) ->
-  # returns length of the tweet based on shortened url
   # https://support.twitter.com/articles/78124-posting-links-in-a-tweet
   fakeUrl = 'http://t.co/BzHLWr31Ce'
   status = Mustache.render template, name: name, url: fakeUrl, page: edit.page
@@ -118,7 +114,8 @@ main = ->
 if require.main == module
   main()
 
-# export these for testing
+# for testing
+exports.address = address
 exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
