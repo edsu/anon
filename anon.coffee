@@ -1,36 +1,44 @@
 #!/usr/bin/env coffee
 
+ipv6          = require 'ipv6'
 Twit          = require 'twit'
-{Netmask}     = require 'netmask'
 minimist      = require 'minimist'
-{WikiChanges} = require 'wikichanges'
 Mustache      = require 'mustache'
+{WikiChanges} = require 'wikichanges'
 
 argv = minimist process.argv.slice(2), default:
   verbose: false
   config: './config.json'
 
+address = (ip) ->
+  if ':' in ip
+    i = new ipv6.v6.Address(ip)
+  else
+    i = new ipv6.v4.Address(ip)
+    subnetMask = 96 + i.subnetMask
+    ip = '::ffff:' + i.toV6Group() + "/" + subnetMask
+    i = new ipv6.v6.Address(ip)
+
 ipToInt = (ip) ->
-  octets = (parseInt(s) for s in ip.split('.'))
-  result = 0
-  result += n * Math.pow(256, i) for n, i in octets.reverse()
-  result
+  i = address(ip)
+  i.bigInteger()
 
 compareIps = (ip1, ip2) ->
-  q1 = ipToInt(ip1)
-  q2 = ipToInt(ip2)
-  if q1 == q2
+  r = ipToInt(ip1).compareTo(ipToInt(ip2))
+  if r == 0
     0
-  else if q1 < q2
-    -1
-  else
+  else if r > 0
     1
+  else
+    -1
 
 isIpInRange = (ip, block) ->
   if Array.isArray block
     compareIps(ip, block[0]) >= 0 and compareIps(ip, block[1]) <= 0
   else
-    new Netmask(block).contains ip
+    a = address(ip)
+    b = address(block)
+    a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
   blocks.filter((block) -> isIpInRange(ip, block)).length > 0
@@ -50,7 +58,6 @@ loadJson = (path) ->
   require path
 
 getStatusLength = (edit, name, template) ->
-  # returns length of the tweet based on shortened url
   # https://support.twitter.com/articles/78124-posting-links-in-a-tweet
   fakeUrl = 'http://t.co/BzHLWr31Ce'
   status = Mustache.render template, name: name, url: fakeUrl, page: edit.page
@@ -68,9 +75,17 @@ getStatus = (edit, name, template) ->
     url: edit.url
     page: page
 
-tweet = (account, status) ->
+lastChange = {}
+isRepeat = (edit) ->
+  k = "#{edit.wikipedia}"
+  v = "#{edit.page}:#{edit.user}"
+  r = lastChange[k] == v
+  lastChange[k] = v
+  return r
+
+tweet = (account, status, edit) ->
   console.log status
-  unless argv.noop
+  unless argv.noop or (account.throttle and isRepeat(edit))
     twitter = new Twit account
     twitter.post 'statuses/update', status: status, (err) ->
       console.log err if err
@@ -82,12 +97,12 @@ inspect = (account, edit) ->
     if account.whitelist and account.whitelist[edit.wikipedia] \
         and account.whitelist[edit.wikipedia][edit.page]
       status = getStatus edit, edit.user, account.template
-      tweet account, status
+      tweet account, status, edit
     else if account.ranges and edit.anonymous
       for name, ranges of account.ranges
         if isIpInAnyRange edit.user, ranges
           status = getStatus edit, name, account.template
-          tweet account, status
+          tweet account, status, edit
 
 main = ->
   config = getConfig argv.config
@@ -99,7 +114,8 @@ main = ->
 if require.main == module
   main()
 
-# export these for testing
+# for testing
+exports.address = address
 exports.compareIps = compareIps
 exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange

@@ -6,11 +6,11 @@
   "version": "0.0.3",
   "dependencies": {
     "twit": "latest",
-    "wikichanges": ">=0.2.3",
+    "wikichanges": ">=0.2.4",
     "coffee-script": "latest",
     "minimist": "latest",
-    "netmask": "latest",
-    "mustache": "latest"
+    "mustache": "latest",
+    "ipv6": "latest"
   },
   "devDependencies": {
     "mocha": "latest",
