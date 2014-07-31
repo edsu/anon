@@ -9,7 +9,7 @@
       "template": "{{page}} Wikipedia article edited anonymously by {{name}} {{&url}}",
       "ranges": {
         "Australian Department of Parliamentary Services": [
-          ["164.75.0.0", "164.75.15.255"],
+          ["164.75.0.0", "164.75.255.255"],
           ["202.14.81.0", "202.14.81.255"]
         ],
         "Parliament of Western Australia": [
