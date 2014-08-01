@@ -5,6 +5,7 @@
   "license": "CC0-1.0",
   "version": "0.0.3",
   "dependencies": {
+    "async": "latest",
     "twit": "latest",
     "wikichanges": ">=0.2.4",
     "coffee-script": "latest",

@@ -1,6 +1,7 @@
 #!/usr/bin/env coffee
 
 ipv6          = require 'ipv6'
+async         = require 'async'
 Twit          = require 'twit'
 minimist      = require 'minimist'
 Mustache      = require 'mustache'
@@ -50,6 +51,7 @@ getConfig = (path) ->
     for account in config.accounts
       if typeof account.ranges == 'string'
         account.ranges = loadJson account.ranges
+  console.log "loaded config from", path
   config
 
 loadJson = (path) ->
@@ -104,12 +106,36 @@ inspect = (account, edit) ->
           status = getStatus edit, name, account.template
           tweet account, status, edit
 
+checkConfig = (config, error) ->
+  if config.accounts
+    async.each config.accounts, canTweet, error
+  else
+    error "missing accounts stanza in config"
+
+canTweet = (account, error) ->
+  try
+    twitter = new Twit account
+    a = account['access_token']
+    twitter.get 'search/tweets', q: 'cats', (err, data, response) ->
+      if err
+        error err + " for access_token " + a
+      else if not response.headers['x-access-level'] or response.headers['x-access-level'] != 'read-write'
+        error "no read-write permission for access token " + a
+      else
+        error null
+  catch err
+    error "unable to create twitter client for account: " + account
+
 main = ->
   config = getConfig argv.config
-  wikipedia = new WikiChanges ircNickname: config.nick
-  wikipedia.listen (edit) ->
-    for account in config.accounts
-      inspect account, edit
+  checkConfig config, (err) ->
+    if not err
+      wikipedia = new WikiChanges ircNickname: config.nick
+      wikipedia.listen (edit) ->
+        for account in config.accounts
+          inspect account, edit
+    else
+      console.log err
 
 if require.main == module
   main()
