@@ -41,24 +41,12 @@ or with an array of start/end IP addresses:
 These two are equivalent, but the former is a bit faster, and easier to read.
 The latter is convenient if your range is difficult to express using a netmask.
 
-### Transparency
-
-If you end up running an anon bot we would love to document the IP address
-ranges you use for transparency purposes. Please add just the ranges
-stanza of your onfig file to the `conf` directory. Name the file using your 
-Twitter account, e.g. for congressedits:
-
-    conf/congressedits.json
-
-You can use a service like [ARIN Online](http://whois.arin.net/ui) to look up
-IP address ranges by organization name.
-
 If you would like your configuration file to reference the IP addresses in 
 the external file just use the filename. So instead of:
 
 ```javascript
 {
-  "nick": "congressedits",
+  "nick": "anon1234",
   "accounts": [
     {
       "consumer_key": "",
@@ -67,9 +55,8 @@ the external file just use the filename. So instead of:
       "access_token_secret": "",
       "template": "{{page}} Wikipedia article edited anonymously from {{name}} {{&url}}",
       "ranges": {
-        "US House of Representatives": [
-          ["143.231.0.0", "143.231.255.255"],
-          ["74.119.128.0", "74.119.131.255"]
+        "Home Network": [
+          ["192.168.1.1", "192.168.255.255"]
         ]
       }
     }
@@ -81,7 +68,7 @@ you would have:
 
 ```javascript
 {
-  "nick": "congressedits",
+  "nick": "anon1234",
   "accounts": [
     {
       "consumer_key": "",
@@ -89,7 +76,7 @@ you would have:
       "access_token": "",
       "access_token_secret": "",
       "template": "{{page}} Wikipedia article edited anonymously from {{name}} {{&url}}",
-      "ranges": "conf/congressedits.json"
+      "ranges": "ranges.json"
     }
   ]
 }
