@@ -176,6 +176,9 @@ issue tracker.
 
 ## Community
 
+Below is a list of known anon instances. Please feel free to add your
+own by sending a pull request.
+
 * [@parliamentedits](https://twitter.com/parliamentedits)
 * [@congressedits](https://twitter.com/congressedits)
 * [@gccaedits](https://twitter.com/gccaedits)
