@@ -119,7 +119,7 @@ canTweet = (account, error) ->
     twitter.get 'search/tweets', q: 'cats', (err, data, response) ->
       if err
         error err + " for access_token " + a
-      else if not response.headers['x-access-level'] or response.headers['x-access-level'] != 'read-write'
+      else if not response.headers['x-access-level'] or response.headers['x-access-level'].substring(0,10) != 'read-write'
         error "no read-write permission for access token " + a
       else
         error null
