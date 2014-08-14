@@ -25,7 +25,6 @@ app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
 1. `./anon.coffee` (you may want to run this in a screen or tmux session, or on a cloud service like Heroku (see below))
-1. have some :coffee: and wait
 
 ### IP Ranges
 
