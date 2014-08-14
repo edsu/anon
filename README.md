@@ -187,6 +187,7 @@ own by sending a pull request.
 * [@bclegedits](https://twitter.com/bclegedits)
 * [@beehive_edits](https://twitter.com/beehive_edits)
 * [@berlinEDUedits](https://twitter.com/berlinEDUedits)
+* [@BotDetectorCamb](https://twitter.com/BotDetectorCamb)
 * [@brwikiedits](https://twitter.com/brwikiedits)
 * [@bundesedit](https://twitter.com/bundesedit)
 * [@ciaedits](https://twitter.com/ciaedits)
