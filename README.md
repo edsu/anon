@@ -187,6 +187,7 @@ own by sending a pull request.
 * [@beehive_edits](https://twitter.com/beehive_edits)
 * [@berlinEDUedits](https://twitter.com/berlinEDUedits)
 * [@BotDetectorCamb](https://twitter.com/BotDetectorCamb)
+* [@BrockWikiEdits](https://twitter.com/BrockWikiEdits)
 * [@brwikiedits](https://twitter.com/brwikiedits)
 * [@bundesedit](https://twitter.com/bundesedit)
 * [@ciaedits](https://twitter.com/ciaedits)
@@ -211,7 +212,9 @@ own by sending a pull request.
 * [@kameredits](https://twitter.com/kameredits)
 * [@LAGovEdits](https://twitter.com/lagovedits)
 * [@LATechEdits](https://twitter.com/LATechEdits)
+* [@lc_edits](https://twitter.com/lc_edits)
 * [@LRSwikiedits](https://twitter.com/LRSwikiedits)
+* [@michigan_edits](https://twitter.com/michigan_edits)
 * [@MITedits](https://twitter.com/MITedits)
 * [@monsantoedits](https://twitter.com/monsantoedits)
 * [@NATOedits](https://twitter.com/NATOedits)
@@ -221,7 +224,7 @@ own by sending a pull request.
 * [@oiledits](https://twitter.com/oiledits)
 * [@ONgovEdits](https://twitter.com/ONgovEdits)
 * [@OverheidEdits](https://twitter.com/OverheidEdits)
-* [@PakistanEdits] (https://twitter.com/PakistanEdits)
+* [@PakistanEdits](https://twitter.com/PakistanEdits)
 * [@Parlamento_Wiki](https://twitter.com/Parlamento_Wiki)
 * [@parliamentedits](https://twitter.com/parliamentedits)
 * [@parlizaedits](https://twitter.com/parlizaedits)
@@ -242,8 +245,10 @@ own by sending a pull request.
 * [@UaGoveEdits_ru](https://twitter.com/UaGovEdits_ru)
 * [@un_edits](https://twitter.com/un_edits)
 * [@valleyedits](https://twitter.com/valleyedits)
+* [@WhitehallEdits](https://twitter.com/WhitehallEdits)
 * [@wikiAssemblee](https://twitter.com/wikiAssemblee)
 * [@wikistorting](https://twitter.com/wikistorting)
+* [@zagovedits](https://twitter.com/zagovedits)
 
 ## License:
 
