@@ -25,7 +25,6 @@ app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
 1. `./anon.coffee` (you may want to run this in a screen or tmux session, or on a cloud service like Heroku (see below))
-1. have some :coffee: and wait
 
 ### IP Ranges
 
@@ -187,6 +186,7 @@ own by sending a pull request.
 * [@bclegedits](https://twitter.com/bclegedits)
 * [@beehive_edits](https://twitter.com/beehive_edits)
 * [@berlinEDUedits](https://twitter.com/berlinEDUedits)
+* [@BotDetectorCamb](https://twitter.com/BotDetectorCamb)
 * [@brwikiedits](https://twitter.com/brwikiedits)
 * [@bundesedit](https://twitter.com/bundesedit)
 * [@ciaedits](https://twitter.com/ciaedits)
