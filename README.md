@@ -179,6 +179,7 @@ Below is a list of known anon instances. Please feel free to add, in an alphabet
 own by sending a pull request.
 
 * [@2dekameredits](https://twitter.com/2dekameredits)
+* [@5thEstateWiki](https://twitter.com/5thEstateWiki)
 * [@academyedits](https://twitter.com/academyedits)
 * [@AUSgovEdits](https://twitter.com/AUSgovEdits)
 * [@AussieParlEdits](https://twitter.com/AussieParlEdits)
@@ -246,6 +247,7 @@ own by sending a pull request.
 * [@un_edits](https://twitter.com/un_edits)
 * [@valleyedits](https://twitter.com/valleyedits)
 * [@WhitehallEdits](https://twitter.com/WhitehallEdits)
+* [@WikiCreeperEdit](https://twitter.com/WikiCreeperEdit)
 * [@wikiAssemblee](https://twitter.com/wikiAssemblee)
 * [@wikistorting](https://twitter.com/wikistorting)
 * [@zagovedits](https://twitter.com/zagovedits)
