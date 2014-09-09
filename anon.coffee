@@ -51,6 +51,7 @@ getConfig = (path) ->
     for account in config.accounts
       if typeof account.ranges == 'string'
         account.ranges = loadJson account.ranges
+        delete account.ranges['@metadata']
   console.log "loaded config from", path
   config
 
@@ -100,6 +101,8 @@ inspect = (account, edit) ->
         and account.whitelist[edit.wikipedia][edit.page]
       status = getStatus edit, edit.user, account.template
       tweet account, status, edit
+    else if account.namespaces? and \
+        (edit.namespace not in account.namespaces) then
     else if account.ranges and edit.anonymous
       for name, ranges of account.ranges
         if isIpInAnyRange edit.user, ranges
@@ -119,7 +122,8 @@ canTweet = (account, error) ->
     twitter.get 'search/tweets', q: 'cats', (err, data, response) ->
       if err
         error err + " for access_token " + a
-      else if not response.headers['x-access-level'] or response.headers['x-access-level'].substring(0,10) != 'read-write'
+      else if not response.headers['x-access-level'] or \
+          response.headers['x-access-level'].substring(0,10) != 'read-write'
         error "no read-write permission for access token " + a
       else
         error null
