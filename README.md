@@ -24,7 +24,8 @@ To run anon you will need to:
 app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
-1. `./anon.coffee` (you may want to run this in a screen or tmux session, or on a cloud service like Heroku (see below))
+1. `./anon.coffee` (you may want to use our shared instance in Wikimedia Labs,
+see below)
 
 ### IP Ranges
 
@@ -102,15 +103,12 @@ file, use the `--config` parameter:
 
     ./anon.coffee --config test.config
 
-### Running on Heroku
+### Running on Wikimedia Labs
 
-A Procfile is included to facilitate running anon on the Heroku cloud service. Once you've satisfied the [Heroku prerequisites](https://devcenter.heroku.com/articles/getting-started-with-nodejs#prerequisites) and [setup Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#local-workstation-setup), you can run anon via:
-
-    heroku create
-    git push heroku master
-    heroku ps:scale worker=1
-
-Read more on [running Node.js applications on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
+We have a shared instance of anon running on [Wikimedia
+Labs](http://tools.wmflabs.org/anon). This is useful once you have a
+configuration that is working and you'd like to have the running instance
+in labs use it.
 
 ## Develop
 
