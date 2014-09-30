@@ -42,7 +42,10 @@ isIpInRange = (ip, block) ->
     a.isInSubnet(b)
 
 isIpInAnyRange = (ip, blocks) ->
-  blocks.filter((block) -> isIpInRange(ip, block)).length > 0
+  for block in blocks
+    if isIpInRange(ip, block)
+      return true
+  return false
 
 getConfig = (path) ->
   config = loadJson path
