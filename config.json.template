@@ -6,7 +6,7 @@
       "consumer_secret": "",
       "access_token": "",
       "access_token_secret": "",
-      "template": "{{page}} Wikipedia article edited anonymously from {{name}} {{&url}}",
+      "template": "{{{page}}} Wikipedia article edited anonymously from {{{name}}} {{&url}}",
       "ranges": {
         "US House of Representatives": [
           "143.231.0.0/16",
@@ -20,6 +20,8 @@
           "156.33.0.0/16"
         ]
       },
+      "throttle": false,
+      "namespaces": ["article", "file", "media", "main"],
       "whitelist": {
         "English Wikipedia": {
           "Sherrod Brown": true,
