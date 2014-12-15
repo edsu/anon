@@ -5,13 +5,13 @@
   "license": "CC0-1.0",
   "version": "0.0.3",
   "dependencies": {
-    "async": "latest",
-    "twit": "latest",
+    "async": "0.9.x",
+    "twit": "1.1.x",
     "wikichanges": ">=0.2.6",
-    "coffee-script": "latest",
-    "minimist": "latest",
-    "mustache": "latest",
-    "ipv6": "latest"
+    "coffee-script": "1.8.x",
+    "minimist": "1.1.x",
+    "mustache": "0.8.x",
+    "ipv6": "3.x.x"
   },
   "devDependencies": {
     "mocha": "latest",
