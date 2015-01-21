@@ -7,7 +7,7 @@
   "dependencies": {
     "async": "0.9.x",
     "twit": "1.1.x",
-    "wikichanges": ">=0.2.6",
+    "wikichanges": ">=0.2.7",
     "coffee-script": "1.8.x",
     "minimist": "1.1.x",
     "mustache": "0.8.x",
