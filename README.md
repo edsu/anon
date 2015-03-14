@@ -220,6 +220,7 @@ own by sending a pull request.
 * [@NCGAedits](https://twitter.com/NCGAedits)
 * [@nsaedits](https://twitter.com/nsaedits)
 * [@nsgovedits](https://twitter.com/nsgovedits)
+* [@NYPDedits](https://twitter.com/NYPDedits)
 * [@oiledits](https://twitter.com/oiledits)
 * [@ONgovEdits](https://twitter.com/ONgovEdits)
 * [@OverheidEdits](https://twitter.com/OverheidEdits)
