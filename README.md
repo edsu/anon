@@ -193,6 +193,7 @@ own by sending a pull request.
 * [@cmuedits](https://twitter.com/cmuedits)
 * [@congresseditors](https://twitter.com/congresseditors)
 * [@congressedits](https://twitter.com/congressedits)
+* [@CPDWikiEdits](https://twitter.com/CPDWikiEdits)
 * [@DailEireannEdit](https://twitter.com/DailEireannEdit)
 * [@EduskuntaEdit](https://twitter.com/EduskuntaEdit)
 * [@EstadoEdita](https://twitter.com/EstadoEdita)
