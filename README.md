@@ -179,6 +179,7 @@ own by sending a pull request.
 * [@2dekameredits](https://twitter.com/2dekameredits)
 * [@5thEstateWiki](https://twitter.com/5thEstateWiki)
 * [@academyedits](https://twitter.com/academyedits)
+* [@AnonGoIWPEdits](https://twitter.com/anongoiwpedits)
 * [@AUSgovEdits](https://twitter.com/AUSgovEdits)
 * [@AussieParlEdits](https://twitter.com/AussieParlEdits)
 * [@bcgovedits](https://twitter.com/bcgovedits)
