@@ -164,8 +164,10 @@ Here are the Wikipedias that it currently supports:
 * [Ukrainian](https://uk.wikipedia.org)
 * [Vietnamese](https://vi.wikipedia.org)
 * [Volapük](https://vo.wikipedia.org)
-* [Wikidata](https://wd.wikipedia.org)
-* [Wikimedia Commons](https://co.wikipedia.org)
+
+Additionally, the following miscellaneous Wikimedia sites: 
+* [Wikidata](https://wikidata.org)
+* [Wikimedia Commons](https://commons.wikimedia.org)
 
 If you would like to have another one added please add a ticket to the
 [wikichanges](https://github.com/edsu/wikichanges/issues)
