@@ -178,9 +178,9 @@ issue tracker.
 Below is a list of known anon instances. Please feel free to add, in an alphabetic order, your
 own by sending a pull request.
 
-* [@_EchoBot](https://twitter.com/_EchoBot)
 * [@2dekameredits](https://twitter.com/2dekameredits)
 * [@5thEstateWiki](https://twitter.com/5thEstateWiki)
+* [@_EchoBot](https://twitter.com/_EchoBot)
 * [@academyedits](https://twitter.com/academyedits)
 * [@AnonGoIWPEdits](https://twitter.com/anongoiwpedits)
 * [@AUSgovEdits](https://twitter.com/AUSgovEdits)
