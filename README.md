@@ -184,6 +184,7 @@ own by sending a pull request.
 * [@AnonGoIWPEdits](https://twitter.com/anongoiwpedits)
 * [@AUSgovEdits](https://twitter.com/AUSgovEdits)
 * [@AussieParlEdits](https://twitter.com/AussieParlEdits)
+* [@bankedits](https://twitter.com/bankedits)
 * [@bcgovedits](https://twitter.com/bcgovedits)
 * [@bclegedits](https://twitter.com/bclegedits)
 * [@beehive_edits](https://twitter.com/beehive_edits)
