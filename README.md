@@ -199,6 +199,7 @@ own by sending a pull request.
 * [@congressedits](https://twitter.com/congressedits)
 * [@CPDWikiEdits](https://twitter.com/CPDWikiEdits)
 * [@DailEireannEdit](https://twitter.com/DailEireannEdit)
+* [@EagleWikiEdits](https://twitter.com/EagleWikiEdits)
 * [@EduskuntaEdit](https://twitter.com/EduskuntaEdit)
 * [@EstadoEdita](https://twitter.com/EstadoEdita)
 * [@euroedit](https://twitter.com/euroedit)
