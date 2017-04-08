@@ -3,6 +3,7 @@
 ipv6          = require 'ipv6'
 async         = require 'async'
 Twit          = require 'twit'
+Mastodon      = require 'mastodon'
 minimist      = require 'minimist'
 Mustache      = require 'mustache'
 {WikiChanges} = require 'wikichanges'
@@ -91,9 +92,14 @@ isRepeat = (edit) ->
 tweet = (account, status, edit) ->
   console.log status
   unless argv.noop or (account.throttle and isRepeat(edit))
-    twitter = new Twit account
-    twitter.post 'statuses/update', status: status, (err) ->
-      console.log err if err
+    if account.mastodon
+      mastodon = new Mastodon(account.mastodon)
+      mastodon.post 'statuses', status: status, (err) ->
+        console.log err if err
+    else if account.access_token
+      twitter = new Twit account
+      twitter.post 'statuses/update', status: status, (err) ->
+        console.log err if err
 
 inspect = (account, edit) ->
   if edit.url
@@ -118,19 +124,22 @@ checkConfig = (config, error) ->
     error "missing accounts stanza in config"
 
 canTweet = (account, error) ->
-  try
-    twitter = new Twit account
-    a = account['access_token']
-    twitter.get 'search/tweets', q: 'cats', (err, data, response) ->
-      if err
-        error err + " for access_token " + a
-      else if not response.headers['x-access-level'] or \
-          response.headers['x-access-level'].substring(0,10) != 'read-write'
-        error "no read-write permission for access token " + a
-      else
-        error null
-  catch err
-    error "unable to create twitter client for account: " + account
+  if not account.access_token
+    error null
+  else
+    try
+      twitter = new Twit account
+      a = account['access_token']
+      twitter.get 'search/tweets', q: 'cats', (err, data, response) ->
+        if err
+          error err + " for access_token " + a
+        else if not response.headers['x-access-level'] or \
+            response.headers['x-access-level'].substring(0,10) != 'read-write'
+          error "no read-write permission for access token " + a
+        else
+          error null
+    catch err
+      error "unable to create twitter client for account: " + account
 
 main = ->
   config = getConfig argv.config
@@ -153,4 +162,5 @@ exports.isIpInRange = isIpInRange
 exports.isIpInAnyRange = isIpInAnyRange
 exports.ipToInt = ipToInt
 exports.getStatus = getStatus
+exports.getConfig = getConfig
 exports.main = main

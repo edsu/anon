@@ -10,6 +10,8 @@ named IP ranges and will tweet when it notices one.  It was inspired by
 used a [community](#community) of users to post selected Wikipedia edits to 
 Twitter.
 
+anon can also send updates on [GNU Social / Mastodon](https://github.com/tootsuite/mastodon) (see below)
+
 ## Run
 
 To run anon you will need to:
@@ -81,6 +83,14 @@ you would have:
   ]
 }
 ```
+
+### Mastodon
+
+If you want to send messages on Mastodon you'll need to create an application
+and then get an access token for the account you want to send on. A utility is
+included to help you do that:
+
+    npm run mastodon
 
 ### Debugging
 
