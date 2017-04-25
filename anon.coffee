@@ -96,7 +96,7 @@ tweet = (account, status, edit) ->
       mastodon = new Mastodon(account.mastodon)
       mastodon.post 'statuses', status: status, (err) ->
         console.log err if err
-    else if account.access_token
+    if account.access_token
       twitter = new Twit account
       twitter.post 'statuses/update', status: status, (err) ->
         console.log err if err
