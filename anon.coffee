@@ -71,7 +71,7 @@ getStatusLength = (edit, name, template) ->
 
 getStatus = (edit, name, template) ->
   len = getStatusLength edit, name, template
-  if len > 140
+  if len > 140 and not account.mastodon
     newLength = edit.page.length - (len - 139)
     page = edit.page[0..newLength]
   else
