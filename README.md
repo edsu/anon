@@ -267,6 +267,7 @@ own by sending a pull request.
 * [@un_edits](https://twitter.com/un_edits)
 * [@valleyedits](https://twitter.com/valleyedits)
 * [@WhitehallEdits](https://twitter.com/WhitehallEdits)
+* [@whitehousedits](https://twitter.com/whitehousedits)
 * [@WikiCreeperEdit](https://twitter.com/WikiCreeperEdit)
 * [@wikiAssemblee](https://twitter.com/wikiAssemblee)
 * [@wikistorting](https://twitter.com/wikistorting)
