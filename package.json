@@ -6,7 +6,6 @@
   "version": "0.0.3",
   "dependencies": {
     "async": "0.9.x",
-    "coffee-script": "1.8.x",
     "ipv6": "3.x.x",
     "mastodon": "^1.1.1",
     "minimist": "1.1.x",
@@ -19,8 +18,8 @@
     "chai": "latest"
   },
   "scripts": {
-    "test": "mocha --colors --reporter spec --compilers coffee:coffee-script/register test.coffee",
-    "start": "coffee anon.coffee",
-    "mastodon": "coffee utils/mastodon.coffee"
+    "test": "mocha --colors --reporter spec test.js",
+    "start": "node anon.js",
+    "mastodon": "node utils/mastodon.js"
   }
 }

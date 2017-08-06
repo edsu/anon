@@ -3,12 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/edsu/anon.svg)](http://travis-ci.org/edsu/anon)
 [![Gitter chat](https://badges.gitter.im/edsu/anon.svg)](https://gitter.im/edsu/anon)
 
-This little coffee script will watch Wikipedia for edits from a set of
-named IP ranges and will tweet when it notices one.  It was inspired by
-[@parliamentedits](https://twitter.com/parliamentedits) and is used to make
-[@congressedits](https://twitter.com/congressedits) available. It is now being
-used a [community](#community) of users to post selected Wikipedia edits to 
-Twitter.
+anon will watch Wikipedia for edits from a set of named IP ranges and will tweet when it notices one. It was inspired by [@parliamentedits](https://twitter.com/parliamentedits) and is used to make [@congressedits](https://twitter.com/congressedits) available. It is now being used a [community](#community) of users to post selected Wikipedia edits to Twitter.
 
 anon can also send updates on [GNU Social / Mastodon](https://github.com/tootsuite/mastodon) (see below)
 
@@ -17,7 +12,6 @@ anon can also send updates on [GNU Social / Mastodon](https://github.com/tootsui
 To run anon you will need to:
 
 1. install [Node](http://nodejs.org)
-1. `npm install -g coffee-script`
 1. `git clone https://github.com/edsu/anon.git`
 1. `cd anon`
 1. `npm install`
@@ -26,8 +20,8 @@ To run anon you will need to:
 app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
-1. `./anon.coffee` (you may want to use our shared instance in Wikimedia Labs,
-see below)
+1. `./anon.js` (you may want to use our shared instance in Wikimedia Labs, see
+   below)
 
 ### IP Ranges
 
@@ -98,12 +92,12 @@ If you would like to test without tweeting you can run anon with the
 `--noop` flag, which will cause the tweet to be written to the console
 but not actually sent to Twitter.
 
-    ./anon.coffee --noop
+    ./anon.js --noop
 
 If you would like to see all the change activity (URLs for each change) to test
 that it is actually listening, use the `--verbose` flag:
 
-    ./anon.coffee --verbose
+    ./anon.js --verbose
 
 ### Alternate Configuration Files
 
@@ -111,7 +105,7 @@ By default anon will look for a `config.json` file in your current working
 directory. If you would like to specify the location of the configuration
 file, use the `--config` parameter:
 
-    ./anon.coffee --config test.config
+    ./anon.js --config test.config
 
 ### Running on Wikimedia Labs
 
