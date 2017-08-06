@@ -3,15 +3,21 @@
 [![Build Status](https://secure.travis-ci.org/edsu/anon.svg)](http://travis-ci.org/edsu/anon)
 [![Gitter chat](https://badges.gitter.im/edsu/anon.svg)](https://gitter.im/edsu/anon)
 
-anon will watch Wikipedia for edits from a set of named IP ranges and will tweet when it notices one. It was inspired by [@parliamentedits](https://twitter.com/parliamentedits) and is used to make [@congressedits](https://twitter.com/congressedits) available. It is now being used a [community](#community) of users to post selected Wikipedia edits to Twitter.
+anon will watch Wikipedia for edits from a set of named IP ranges and will tweet
+when it notices one. It was inspired by
+[@parliamentedits](https://twitter.com/parliamentedits) and is used to make
+[@congressedits](https://twitter.com/congressedits) available. It is now being
+used a [community](#community) of users to post selected Wikipedia edits to
+Twitter.
 
-anon can also send updates on [GNU Social / Mastodon](https://github.com/tootsuite/mastodon) (see below)
+anon can also send updates on [GNU Social /
+Mastodon](https://github.com/tootsuite/mastodon) (see below)
 
 ## Run
 
 To run anon you will need to:
 
-1. install [Node](http://nodejs.org)
+1. install [Node](http://nodejs.org) (v6 or higher)
 1. `git clone https://github.com/edsu/anon.git`
 1. `cd anon`
 1. `npm install`
