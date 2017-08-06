@@ -17,10 +17,8 @@
     "mocha": "latest",
     "chai": "latest"
   },
-  {
-    "engines": {
-      "node": ">=6"
-    }
+  "engines": {
+    "node": ">=6"
   },
   "scripts": {
     "test": "mocha --colors --reporter spec test.js",
