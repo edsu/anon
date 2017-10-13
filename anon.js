@@ -6,6 +6,8 @@ const Twit          = require('twit')
 const Mastodon      = require('mastodon')
 const minimist      = require('minimist')
 const Mustache      = require('mustache')
+const webshot       = require('webshot')
+const fs            = require('fs')
 const {WikiChanges} = require('wikichanges')
 
 const argv = minimist(process.argv.slice(2), {
@@ -125,11 +127,51 @@ function tweet(account, status, edit) {
     }
     if (account.access_token) {
       const twitter = new Twit(account);
-      return twitter.post('statuses/update', {status}, function(err) {
+
+      var filename = new Date().toString();
+      // take a screenshot of the edit diff
+      webshot(edit.url, filename, {captureSelector: '.diff.diff-contentalign-left'}, function(err) {
         if (err) {
-          console.log(err)
+          console.log(err);
+          return
         }
+        const b64content = fs.readFileSync(filename, { encoding: 'base64' })
+
+        // upload the screenshot to twitter
+        twitter.post('media/upload', { media_data: b64content }, function (err, data, response) {
+          // remove the screenshot file from the filesystem since it's no longer needed
+          fs.unlink(filename)
+
+          if (err) {
+            console.log(err);
+            return
+          }
+
+          // add alt text for the media, for use by screen readers 
+          const mediaIdStr = data.media_id_string
+          const altText = "Screenshot of edit to "+edit.page
+          const meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
+
+          twitter.post('media/metadata/create', meta_params, function (err, data, response) {
+            if (err) {
+              console.log(err)
+            }
+            // now we can reference the media and post a tweet (media will attach to the tweet)
+            const params = {
+              'status': status,
+              'media_ids': [mediaIdStr]
+            }
+
+            twitter.post('statuses/update', params, function(err) {
+              if (err) {
+                console.log(err)
+              }
+            })
+
+          })
+        })
       })
+
     }
   }
 }
@@ -215,3 +257,4 @@ module.exports = {
   getConfig,
   getStatus
 }
+
