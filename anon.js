@@ -114,23 +114,43 @@ function isRepeat(edit) {
   return r
 }
 
+const wikipediaDiffBoxCSSSelector = '.diff.diff-contentalign-left';
+
 function tweet(account, status, edit) {
   console.log(status)
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
     if (account.mastodon) {
       const mastodon = new Mastodon(account.mastodon)
-      mastodon.post('statuses', {status}, function(err) {
+
+      var filename = new Date().toString()+'.png';
+      // take a screenshot of the edit diff
+      webshot(edit.url, filename, {captureSelector: wikipediaDiffBoxCSSSelector}, function(err) {
         if (err) {
           console.log(err);
+          return
         }
+        // upload the screenshot to mastodon
+        mastodon.post('media', { file: fs.createReadStream(filename) }).then(function(response) {
+          fs.unlink(filename)
+          if (!response.data.id) {
+            console.log('error uploading screenshot to mastodon')
+            return
+          }
+          // post the status
+          mastodon.post('statuses', { 'status': status, media_ids: [response.data.id] }, function(err) {
+            if (err) {
+              console.log(err);
+            }
+          })
+        })
       })
     }
     if (account.access_token) {
       const twitter = new Twit(account);
 
-      var filename = new Date().toString();
+      var filename = new Date().toString()+'.png';
       // take a screenshot of the edit diff
-      webshot(edit.url, filename, {captureSelector: '.diff.diff-contentalign-left'}, function(err) {
+      webshot(edit.url, filename, {captureSelector: wikipediaDiffBoxCSSSelector}, function(err) {
         if (err) {
           console.log(err);
           return
