@@ -120,7 +120,7 @@ Labs](http://tools.wmflabs.org/anon). This is useful once you have a
 configuration that is working and you'd like to have the running instance
 in labs use it.
 
-## With docker
+## With Docker
 
 ### Build image
 
