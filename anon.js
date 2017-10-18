@@ -153,12 +153,13 @@ async function takeScreenshotOfDiff(url) {
 async function tweet(account, status, edit) {
   console.log(status)
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
-    
-    const filename = await takeScreenshotOfDiff(edit.url);
-    if (!filename) return;
+
 
     if (account.mastodon) {
       const mastodon = new Mastodon(account.mastodon)
+
+      const mastodonScreenshotFilename = await takeScreenshotOfDiff(edit.url);
+      if (!mastodonScreenshotFilename) return;
 
       // upload the screenshot to mastodon
       mastodon.post('media', { file: fs.createReadStream(filename) }).then(function(response) {
@@ -178,12 +179,14 @@ async function tweet(account, status, edit) {
     if (account.access_token) {
       const twitter = new Twit(account);
 
-      const b64content = fs.readFileSync(filename, { encoding: 'base64' })
+      const twitterScreenshotFilename = await takeScreenshotOfDiff(edit.url);
+      if (!twitterScreenshotFilename) return;
+      const b64content = fs.readFileSync(twitterScreenshotFilename, { encoding: 'base64' })
 
       // upload the screenshot to twitter
       twitter.post('media/upload', { media_data: b64content }, function (err, data, response) {
         // remove the screenshot file from the filesystem since it's no longer needed
-        fs.unlink(filename)
+        fs.unlink(twitterScreenshotFilename)
 
         if (err) {
           console.log(err);
@@ -197,7 +200,7 @@ async function tweet(account, status, edit) {
 
         twitter.post('media/metadata/create', meta_params, function (err, data, response) {
           if (err) {
-            console.log(err)
+            console.log('metadata upload for twitter screenshot alt text failed with error', err)
           }
           // now we can reference the media and post a tweet (media will attach to the tweet)
           const params = {

@@ -11,7 +11,7 @@
     "minimist": "1.1.x",
     "mustache": "0.8.x",
     "phantom": "^4.0.5",
-    "twit": "1.1.x",
+    "twit": "^2.2.9",
     "wikichanges": ">=0.2.7"
   },
   "devDependencies": {
