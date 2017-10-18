@@ -153,11 +153,13 @@ async function takeScreenshotOfDiff(url) {
 async function tweet(account, status, edit) {
   console.log(status)
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
+    
+    const filename = await takeScreenshotOfDiff(edit.url);
+    if (!filename) return;
+
     if (account.mastodon) {
       const mastodon = new Mastodon(account.mastodon)
 
-      var filename = await takeScreenshotOfDiff(edit.url);
-      if (!filename) return;
       // upload the screenshot to mastodon
       mastodon.post('media', { file: fs.createReadStream(filename) }).then(function(response) {
         fs.unlink(filename)
@@ -176,8 +178,6 @@ async function tweet(account, status, edit) {
     if (account.access_token) {
       const twitter = new Twit(account);
 
-      var filename = await takeScreenshotOfDiff(edit.url);
-      if (!filename) return;
       const b64content = fs.readFileSync(filename, { encoding: 'base64' })
 
       // upload the screenshot to twitter
