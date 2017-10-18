@@ -120,6 +120,19 @@ Labs](http://tools.wmflabs.org/anon). This is useful once you have a
 configuration that is working and you'd like to have the running instance
 in labs use it.
 
+## With Docker
+
+### Build image
+
+1. git clone the repo
+1. `cd anon`
+1. `docker build . -t anon`
+
+### Run image
+
+1. create your `config.json` file
+1. `docker run -v $PWD/config.json:/opt/anon/config.json anon`
+
 ## Develop
 
 There is not much to anon but there is a small test suite, which might
