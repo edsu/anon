@@ -226,6 +226,7 @@ own by sending a pull request.
 * [@EduskuntaEdit](https://twitter.com/EduskuntaEdit)
 * [@EstadoEdita](https://twitter.com/EstadoEdita)
 * [@euroedit](https://twitter.com/euroedit)
+* [@FinlandEdits](https://twitter.com/FinlandEdits)
 * [@FloridaEdits](https://twitter.com/FloridaEdits)
 * [@FTingetWikiEdit](https://twitter.com/FTingetWikiEdit)
 * [@gccaedits](https://twitter.com/gccaedits)
