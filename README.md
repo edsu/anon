@@ -281,8 +281,8 @@ own by sending a pull request.
 * [@valleyedits](https://twitter.com/valleyedits)
 * [@WhitehallEdits](https://twitter.com/WhitehallEdits)
 * [@whitehousedits](https://twitter.com/whitehousedits)
-* [@WikiCreeperEdit](https://twitter.com/WikiCreeperEdit)
 * [@wikiAssemblee](https://twitter.com/wikiAssemblee)
+* [@WikiCreeperEdit](https://twitter.com/WikiCreeperEdit)
 * [@wikistorting](https://twitter.com/wikistorting)
 * [@zagovedits](https://twitter.com/zagovedits)
 
