@@ -116,9 +116,9 @@ function isRepeat(edit) {
 
 function takeScreenshot(url) {
   return new Promise(function(resolve, reject) {
-    phantom.create(['--ignore-ssl-errors=yes']).then(function(ph) {
+    phantom.create(['--ignore-ssl-errors=yes']).then(function(browser) {
       var filename = new Date().toString() + '.png'
-      ph.createPage().then(function(page) {
+      browser.createPage().then(function(page) {
         page.property('viewportSize', {width: 1024, height: 768}).then(function() {
           page.open(url).then(function(status) {
             if (status === 'fail') {
@@ -140,7 +140,7 @@ function takeScreenshot(url) {
               }).then(function(clipRect) {
                 page.property('clipRect', clipRect).then(function() {
                   page.render(filename).then(function() {
-                    ph.exit().then(function() {
+                    browser.exit().then(function() {
                       resolve(filename)
                     })
                   })
