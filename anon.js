@@ -219,9 +219,6 @@ function sendStatus(account, status, edit) {
 
 function inspect(account, edit) {
   if (edit.url) {
-    if (argv.verbose) {
-      console.log(edit.url)
-    }
     if (account.whitelist && account.whitelist[edit.wikipedia]
         && account.whitelist[edit.wikipedia][edit.page]) {
       status = getStatus(edit, edit.user, account.template);
@@ -274,10 +271,13 @@ function main() {
   return checkConfig(config, function(err) {
     if (!err) {
       const wikipedia = new WikiChanges({ircNickname: config.nick})
-      return wikipedia.listen(edit =>
+      return wikipedia.listen(edit => {
+        if (argv.verbose) {
+          console.log(JSON.stringify(edit))
+        }
         Array.from(config.accounts).map((account) =>
           inspect(account, edit))
-      );
+      });
     } else {
       return console.log(err)
     }
