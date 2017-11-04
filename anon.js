@@ -114,114 +114,109 @@ function isRepeat(edit) {
   return r
 }
 
-async function takeScreenshotOfDiff(url) {
-  const phantomInstance = await phantom.create(['--ignore-ssl-errors=yes']);
-  var filename = new Date().toString()+'.png';
-
-  var page = await phantomInstance.createPage();
-  await page.property('viewportSize', {width: 1024, height: 768});
-
-  const status = await page.open(url);
-  if (status === 'fail') {
-      console.log('Failed to open page', url, 'for screen capture.')
-      await phantomInstance.exit();
-      return
-  }
-
-  const clipRect = await page.evaluate(function() {
-    try {
-        var diffBoundingRect = document.querySelector('table.diff.diff-contentalign-left').getBoundingClientRect();
-        return {
-            top: diffBoundingRect.top,
-            left: diffBoundingRect.left,
-            width: diffBoundingRect.width + 75, // for some reason phantomjs doesn't seem to get the sizing right
-            height: diffBoundingRect.height,
-        };
-    } catch(e) {
-      console.log('Error: no diff found on wikipedia page')
-    }
-  })
-  await page.property('clipRect', clipRect)
-
-  await page.render(filename);
-  await phantomInstance.exit();
-
-  return filename;
-}
-
-
-async function tweet(account, status, edit) {
-  console.log(status)
-  if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
-
-
-    if (account.mastodon) {
-      const mastodon = new Mastodon(account.mastodon)
-
-      const mastodonScreenshotFilename = await takeScreenshotOfDiff(edit.url);
-      if (!mastodonScreenshotFilename) return;
-
-      // upload the screenshot to mastodon
-      mastodon.post('media', { file: fs.createReadStream(filename) }).then(function(response) {
-        fs.unlink(filename)
-        if (!response.data.id) {
-          console.log('error uploading screenshot to mastodon')
-          return
-        }
-        // post the status
-        mastodon.post('statuses', { 'status': status, media_ids: [response.data.id] }, function(err) {
-          if (err) {
-            console.log(err);
-          }
-        })
-      })
-    }
-    if (account.access_token) {
-      const twitter = new Twit(account);
-
-      const twitterScreenshotFilename = await takeScreenshotOfDiff(edit.url);
-      if (!twitterScreenshotFilename) return;
-      const b64content = fs.readFileSync(twitterScreenshotFilename, { encoding: 'base64' })
-
-      // upload the screenshot to twitter
-      twitter.post('media/upload', { media_data: b64content }, function (err, data, response) {
-        // remove the screenshot file from the filesystem since it's no longer needed
-        fs.unlink(twitterScreenshotFilename)
-
-        if (err) {
-          console.log(err);
-          return
-        }
-
-        // add alt text for the media, for use by screen readers 
-        const mediaIdStr = data.media_id_string
-        const altText = "Screenshot of edit to "+edit.page
-        const meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
-
-        twitter.post('media/metadata/create', meta_params, function (err, data, response) {
-          if (err) {
-            console.log('metadata upload for twitter screenshot alt text failed with error', err)
-          }
-          // now we can reference the media and post a tweet (media will attach to the tweet)
-          const params = {
-            'status': status,
-            'media_ids': [mediaIdStr]
-          }
-
-          twitter.post('statuses/update', params, function(err) {
-            if (err) {
-              console.log(err)
+function takeScreenshot(url) {
+  return new Promise(function(resolve, reject) {
+    phantom.create(['--ignore-ssl-errors=yes']).then(function(ph) {
+      var filename = new Date().toString() + '.png'
+      ph.createPage().then(function(page) {
+        page.property('viewportSize', {width: 1024, height: 768}).then(function() {
+          page.open(url).then(function(status) {
+            if (status === 'fail') {
+              cb('fail', null)
+            } else {
+              page.evaluate(function() {
+                try {
+                  var diffBoundingRect = document.querySelector('table.diff.diff-contentalign-left').getBoundingClientRect();
+                  // for some reason phantomjs doesn't seem to get the sizing right
+                  return {
+                      top: diffBoundingRect.top,
+                      left: diffBoundingRect.left,
+                      width: diffBoundingRect.width + 75,
+                      height: diffBoundingRect.height,
+                  }
+                } catch(e) {
+                  console.log('Error: no diff found on wikipedia page')
+                }
+              }).then(function(clipRect) {
+                page.property('clipRect', clipRect).then(function() {
+                  page.render(filename).then(function() {
+                    ph.exit().then(function() {
+                      resolve(filename)
+                    })
+                  })
+                })
+              })
             }
           })
-
         })
       })
+    })
+  })
+}
 
-    }
+function sendStatus(account, status, edit) {
+  console.log(status)
+
+  if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
+    takeScreenshot(edit.url).then(function(screenshot) {
+
+      // Mastodon
+      if (account.mastodon) {
+        const mastodon = new Mastodon(account.mastodon)
+        mastodon.post('media', {file: fs.createReadStream(screenshot)})
+          .then(function(response) {
+            if (!response.data.id) {
+              console.log('error uploading screenshot to mastodon')
+              return
+            }
+            mastodon.post('statuses', { 'status': status, media_ids: [response.data.id] }, function(err) {
+              if (err) {
+                console.log(err);
+              }
+            })
+        })
+      }
+
+      // Twitter
+      if (account.access_token) {
+        const twitter = new Twit(account);
+        const b64content = fs.readFileSync(screenshot, {encoding: 'base64'})
+
+        // upload the screenshot to twitter
+        twitter.post('media/upload', {media_data: b64content}, function (err, data, response) {
+          if (err) {
+            console.log(err);
+            return
+          }
+
+          // add alt text for the media, for use by screen readers
+          const mediaIdStr = data.media_id_string
+          const altText = "Screenshot of edit to "+edit.page
+          const meta_params = {media_id: mediaIdStr, alt_text: {text: altText}}
+
+          twitter.post('media/metadata/create', meta_params, function (err, data, response) {
+            if (err) {
+              console.log('metadata upload for twitter screenshot alt text failed with error', err)
+            }
+            const params = {
+              'status': status,
+              'media_ids': [mediaIdStr]
+            }
+            twitter.post('statuses/update', params, function(err) {
+              if (err) {
+                console.log(err)
+              }
+            })
+            fs.unlink(screenshot)
+          })
+        })
+      }
+
+    })
   }
 }
 
-async function inspect(account, edit) {
+function inspect(account, edit) {
   if (edit.url) {
     if (argv.verbose) {
       console.log(edit.url)
@@ -229,13 +224,13 @@ async function inspect(account, edit) {
     if (account.whitelist && account.whitelist[edit.wikipedia]
         && account.whitelist[edit.wikipedia][edit.page]) {
       status = getStatus(edit, edit.user, account.template);
-      tweet(account, status, edit);
+      sendStatus(account, status, edit);
     } else if (account.ranges && edit.anonymous) {
       for (let name in account.ranges) {
         const ranges = account.ranges[name];
         if (isIpInAnyRange(edit.user, ranges)) {
           status = getStatus(edit, name, account.template)
-          tweet(account, status, edit)
+          sendStatus(account, status, edit)
         }
       }
     }
@@ -300,6 +295,6 @@ module.exports = {
   isIpInRange,
   isIpInAnyRange,
   getConfig,
-  getStatus
+  getStatus,
+  takeScreenshot
 }
-

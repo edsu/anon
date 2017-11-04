@@ -1,10 +1,8 @@
-const anon = require('./anon');
-const { assert } = require('chai');
+const fs = require('fs')
+const anon = require('./anon')
 
-const { getStatus } = anon;
-const { compareIps } = anon;
-const { isIpInRange } = anon;
-const { isIpInAnyRange } = anon;
+const { assert } = require('chai')
+const { compareIps, isIpInRange, isIpInAnyRange } = anon
 
 describe('anon', function() {
 
@@ -52,14 +50,14 @@ describe('anon', function() {
     })
   })
 
-  return describe('getStatus', function() {
+  describe('getStatus', function() {
     it('works', function() {
       const edit = {page: 'Foo', url: 'http://example.com'}
       const name = 'Bar'
       const template = "{{page}} edited by {{name}} {{&url}}"
-      const result = getStatus(edit, name, template)
+      const result = anon.getStatus(edit, name, template)
       assert.equal('Foo edited by Bar http://example.com', result)
-    });
+    })
     it('truncates when > 140 chars', function() {
       // twitter shortens all urls, so we use a shortened one here
       const edit = {
@@ -68,8 +66,23 @@ describe('anon', function() {
       }
       const name = 'test'
       const template = "{{page}} edited by {{name}} {{&url}}"
-      const result = getStatus(edit, name, template)
+      const result = anon.getStatus(edit, name, template)
       assert.isTrue(result.length <= 140)
     })
   })
+
+  describe('takeScreenshot', function() {
+    it('works', function(done) {
+      this.timeout(20000)
+      const url = 'https://en.wikipedia.org/w/index.php?diff=619968907&oldid=619663144'
+      anon.takeScreenshot(url).then(function(path) {
+        fs.stat('package.json', (err, stat) => {
+          assert.isNull(err)
+          assert.isTrue(stat.size > 0)
+          fs.unlink(path, done)
+        })
+      })
+    })
+  })
+
 })
