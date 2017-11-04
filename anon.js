@@ -129,10 +129,10 @@ function takeScreenshot(url) {
                   var diffBoundingRect = document.querySelector('table.diff.diff-contentalign-left').getBoundingClientRect();
                   // for some reason phantomjs doesn't seem to get the sizing right
                   return {
-                      top: diffBoundingRect.top,
-                      left: diffBoundingRect.left,
-                      width: diffBoundingRect.width + 75,
-                      height: diffBoundingRect.height,
+                    top: diffBoundingRect.top,
+                    left: diffBoundingRect.left,
+                    width: diffBoundingRect.width + 75,
+                    height: diffBoundingRect.height,
                   }
                 } catch(e) {
                   console.log('Error: no diff found on wikipedia page')
