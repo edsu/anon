@@ -158,6 +158,7 @@ function sendStatus(account, status, edit) {
   console.log(status)
 
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
+
     takeScreenshot(edit.url).then(function(screenshot) {
 
       // Mastodon
@@ -183,7 +184,7 @@ function sendStatus(account, status, edit) {
         const b64content = fs.readFileSync(screenshot, {encoding: 'base64'})
 
         // upload the screenshot to twitter
-        twitter.post('media/upload', {media_data: b64content}, function (err, data, response) {
+        twitter.post('media/upload', {media_data: b64content}, function(err, data, response) {
           if (err) {
             console.log(err);
             return
@@ -191,10 +192,10 @@ function sendStatus(account, status, edit) {
 
           // add alt text for the media, for use by screen readers
           const mediaIdStr = data.media_id_string
-          const altText = "Screenshot of edit to "+edit.page
-          const meta_params = {media_id: mediaIdStr, alt_text: {text: altText}}
+          const altText = "Screenshot of edit to " + edit.page
+          const metaParams = {media_id: mediaIdStr, alt_text: {text: altText}}
 
-          twitter.post('media/metadata/create', meta_params, function (err, data, response) {
+          twitter.post('media/metadata/create', metaParams, function(err, data, response) {
             if (err) {
               console.log('metadata upload for twitter screenshot alt text failed with error', err)
             }
