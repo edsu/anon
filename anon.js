@@ -60,7 +60,7 @@ function isIpInAnyRange(ip, blocks) {
     }
   }
   return false
-};
+}
 
 function getConfig(path) {
   const config = loadJson(path)
@@ -74,14 +74,14 @@ function getConfig(path) {
   }
   console.log("loaded config from", path)
   return config
-};
+}
 
 function loadJson(path) {
   if ((path[0] !== '/') && (path.slice(0, 2) !== './')) {
     path = `./${path}`
   }
   return require(path)
-};
+}
 
 function getStatusLength(edit, name, template) {
   // https://support.twitter.com/articles/78124-posting-links-in-a-tweet
@@ -92,7 +92,7 @@ function getStatusLength(edit, name, template) {
 
 function getStatus(edit, name, template) {
   let page = edit.page
-  const len = getStatusLength(edit, name, template);
+  const len = getStatusLength(edit, name, template)
   if (len > 140) {
     const newLength = edit.page.length - (len - 139)
     page = edit.page.slice(0, +newLength + 1 || undefined)
@@ -102,7 +102,7 @@ function getStatus(edit, name, template) {
     url: edit.url,
     page
   })
-};
+}
 
 const lastChange = {}
 
@@ -126,7 +126,7 @@ function takeScreenshot(url) {
             } else {
               page.evaluate(function() {
                 try {
-                  var diffBoundingRect = document.querySelector('table.diff.diff-contentalign-left').getBoundingClientRect();
+                  var diffBoundingRect = document.querySelector('table.diff.diff-contentalign-left').getBoundingClientRect()
                   // for some reason phantomjs doesn't seem to get the sizing right
                   return {
                     top: diffBoundingRect.top,
@@ -172,7 +172,7 @@ function sendStatus(account, status, edit) {
             }
             mastodon.post('statuses', { 'status': status, media_ids: [response.data.id] }, function(err) {
               if (err) {
-                console.log(err);
+                console.log(err)
               }
             })
         })
@@ -180,13 +180,13 @@ function sendStatus(account, status, edit) {
 
       // Twitter
       if (account.access_token) {
-        const twitter = new Twit(account);
+        const twitter = new Twit(account)
         const b64content = fs.readFileSync(screenshot, {encoding: 'base64'})
 
         // upload the screenshot to twitter
         twitter.post('media/upload', {media_data: b64content}, function(err, data, response) {
           if (err) {
-            console.log(err);
+            console.log(err)
             return
           }
 
@@ -221,11 +221,11 @@ function inspect(account, edit) {
   if (edit.url) {
     if (account.whitelist && account.whitelist[edit.wikipedia]
         && account.whitelist[edit.wikipedia][edit.page]) {
-      status = getStatus(edit, edit.user, account.template);
-      sendStatus(account, status, edit);
+      status = getStatus(edit, edit.user, account.template)
+      sendStatus(account, status, edit)
     } else if (account.ranges && edit.anonymous) {
       for (let name in account.ranges) {
-        const ranges = account.ranges[name];
+        const ranges = account.ranges[name]
         if (isIpInAnyRange(edit.user, ranges)) {
           status = getStatus(edit, name, account.template)
           sendStatus(account, status, edit)
@@ -259,7 +259,7 @@ function canTweet(account, error) {
         } else {
           error(null)
         }
-      });
+      })
     } catch (err) {
       error(`unable to create twitter client for account: ${account}`)
     }
@@ -277,7 +277,7 @@ function main() {
         }
         Array.from(config.accounts).map((account) =>
           inspect(account, edit))
-      });
+      })
     } else {
       return console.log(err)
     }
