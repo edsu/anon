@@ -3,8 +3,8 @@
 const fs            = require('fs')
 const ipv6          = require('ipv6')
 const Twit          = require('twit')
+const async         = require('async')
 const phantom       = require('phantom')
-const asynclib      = require('async')
 const minimist      = require('minimist')
 const Mastodon      = require('mastodon')
 const Mustache      = require('mustache')
@@ -237,7 +237,7 @@ function inspect(account, edit) {
 
 function checkConfig(config, error) {
   if (config.accounts) {
-    return asynclib.each(config.accounts, canTweet, error)
+    return async.each(config.accounts, canTweet, error)
   } else {
     return error("missing accounts stanza in config")
   }
