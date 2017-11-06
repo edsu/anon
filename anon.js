@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const ipv6          = require('ipv6')
-const asynclib      = require('async')
-const Twit          = require('twit')
-const Mastodon      = require('mastodon')
-const minimist      = require('minimist')
-const Mustache      = require('mustache')
-const phantom       = require('phantom')
 const fs            = require('fs')
+const ipv6          = require('ipv6')
+const Twit          = require('twit')
+const phantom       = require('phantom')
+const asynclib      = require('async')
+const minimist      = require('minimist')
+const Mastodon      = require('mastodon')
+const Mustache      = require('mustache')
 const {WikiChanges} = require('wikichanges')
 
 const argv = minimist(process.argv.slice(2), {
