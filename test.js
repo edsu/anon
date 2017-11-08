@@ -58,16 +58,16 @@ describe('anon', function() {
       const result = anon.getStatus(edit, name, template)
       assert.equal('Foo edited by Bar http://example.com', result)
     })
-    it('truncates when > 140 chars', function() {
+    it('truncates when > 280 chars', function() {
       // twitter shortens all urls, so we use a shortened one here
       const edit = {
-        page: Array(140).join('x'),
+        page: Array(280).join('x'),
         url: 'http://t.co/BzHLWr31Ce'
       }
       const name = 'test'
       const template = "{{page}} edited by {{name}} {{&url}}"
       const result = anon.getStatus(edit, name, template)
-      assert.isTrue(result.length <= 140)
+      assert.isTrue(result.length <= 280)
     })
   })
 
