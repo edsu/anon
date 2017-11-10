@@ -205,6 +205,7 @@ own by sending a pull request.
 * [@5thEstateWiki](https://twitter.com/5thEstateWiki)
 * [@academyedits](https://twitter.com/academyedits)
 * [@AnonGoIWPEdits](https://twitter.com/anongoiwpedits)
+* [@atWikiEdits](https://twitter.com/atWikiEdits)
 * [@AUSgovEdits](https://twitter.com/AUSgovEdits)
 * [@AussieParlEdits](https://twitter.com/AussieParlEdits)
 * [@bankedits](https://twitter.com/bankedits)
