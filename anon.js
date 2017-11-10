@@ -93,8 +93,8 @@ function getStatusLength(edit, name, template) {
 function getStatus(edit, name, template) {
   let page = edit.page
   const len = getStatusLength(edit, name, template)
-  if (len > 140) {
-    const newLength = edit.page.length - (len - 139)
+  if (len > 280) {
+    const newLength = edit.page.length - (len - 279)
     page = edit.page.slice(0, +newLength + 1 || undefined)
   }
   return Mustache.render(template, {
