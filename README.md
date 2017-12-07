@@ -277,6 +277,7 @@ own by sending a pull request.
 * [@UaGovEdits_en](https://twitter.com/UaGovEdits_en)
 * [@UaGovEdits](https://twitter.com/UaGovEdits)
 * [@UaGoveEdits_ru](https://twitter.com/UaGovEdits_ru)
+* [@UBCEdits](https://twitter.com/UBCEdits)
 * [@uc_wiki_edits](https://twitter.com/uc_wiki_edits)
 * [@UChicago_edits](https://twitter.com/UChicago_edits)
 * [@un_edits](https://twitter.com/un_edits)
