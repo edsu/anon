@@ -270,6 +270,7 @@ own by sending a pull request.
 * [@RiksdagWikiEdit](https://twitter.com/RiksdagWikiEdit)
 * [@RuGovEdits_en](https://twitter.com/RuGovEdits_en)
 * [@RuGovEdits](https://twitter.com/RuGovEdits)
+* [@rusmetroedits](https://twitter.com/rusmetroedits)
 * [@stanfordedits](https://twitter.com/stanfordedits)
 * [@swissgovedit](https://twitter.com/swissgovedit)
 * [@TBMMedits](https://twitter.com/TBMMedits)
