@@ -280,6 +280,7 @@ own by sending a pull request.
 * [@UBCEdits](https://twitter.com/UBCEdits)
 * [@uc_wiki_edits](https://twitter.com/uc_wiki_edits)
 * [@UChicago_edits](https://twitter.com/UChicago_edits)
+* [@UGAediting](https://twitter.com/UGAediting)
 * [@un_edits](https://twitter.com/un_edits)
 * [@valleyedits](https://twitter.com/valleyedits)
 * [@WhitehallEdits](https://twitter.com/WhitehallEdits)
