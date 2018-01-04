@@ -9,8 +9,8 @@
     "ipv6": "3.x.x",
     "mastodon": "^1.1.1",
     "minimist": "1.1.x",
-    "mustache": "0.8.x",
-    "phantom": "^4.0.5",
+    "mustache": "2.3.0",
+    "phantom": "^4.0.12",
     "twit": "2.2.x",
     "wikichanges": ">=0.2.7"
   },
