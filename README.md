@@ -7,7 +7,7 @@ anon will watch Wikipedia for edits from a set of named IP ranges and will tweet
 when it notices one. It was inspired by
 [@parliamentedits](https://twitter.com/parliamentedits) and is used to make
 [@congressedits](https://twitter.com/congressedits) available. It is now being
-used a [community](#community) of users to post selected Wikipedia edits to
+used by a [community](#community) of users to post selected Wikipedia edits to
 Twitter.
 
 anon can also send updates on [GNU Social /
