@@ -3,8 +3,8 @@
 [![Build Status](https://secure.travis-ci.org/edsu/anon.svg)](http://travis-ci.org/edsu/anon)
 [![Gitter chat](https://badges.gitter.im/edsu/anon.svg)](https://gitter.im/edsu/anon)
 
-anon will watch Wikipedia for anonymous edits from a set of named IP ranges and
-will tweet when it notices one. It was inspired by
+anon will watch Wikipedia for *anonymous* edits from a set of named IP ranges
+and will tweet when it notices one. It was inspired by
 [@parliamentedits](https://twitter.com/parliamentedits) and is used to make
 [@congressedits](https://twitter.com/congressedits) available. It is now being
 used by a [community](#community) of users to post selected Wikipedia edits to
