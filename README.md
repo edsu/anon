@@ -5,10 +5,14 @@
 
 anon will watch Wikipedia for *anonymous* edits from a set of named IP ranges
 and will tweet when it notices one. It was inspired by
-[@parliamentedits](https://twitter.com/parliamentedits) and is used to make
-[@congressedits](https://twitter.com/congressedits) available. It is now being
-used by a [community](#community) of users to post selected Wikipedia edits to
-Twitter.
+[@parliamentedits](https://twitter.com/parliamentedits) and was used to make
+[@congressedits](https://twitter.com/congressedits) available until the account
+was suspended by Twitter in 2018. An archive of the @congressedits tweets up
+until that point is [available](https://edsu.github.io/congressedits-archive/).
+For more about why the @congressedits accounts was suspended see [this
+article](http://thewikipedian.net/2019/01/17/congressedits-twitter-suspended/)
+from The Wikipedian. anon is now being used by a [community](#community) of
+users to post selected Wikipedia edits to Twitter.
 
 anon can also send updates on [GNU Social /
 Mastodon](https://github.com/tootsuite/mastodon) (see below)
@@ -220,8 +224,8 @@ own by sending a pull request.
 * [@ciaedits](https://twitter.com/ciaedits)
 * [@cmuedits](https://twitter.com/cmuedits)
 * [@congresseditors](https://twitter.com/congresseditors)
-* [@congressedits](https://twitter.com/congressedits) **Banned**
-   * [@congressedits on mastodon](https://botsin.space/@congressedits)
+* [@congressedits](https://edsu.github.io/congressedits-archive/) **Banned** 
+  * [@congressedits on mastodon](https://botsin.space/@congressedits)
 * [@CPDWikiEdits](https://twitter.com/CPDWikiEdits)
 * [@DailEireannEdit](https://twitter.com/DailEireannEdit)
 * [@EagleWikiEdits](https://twitter.com/EagleWikiEdits)
