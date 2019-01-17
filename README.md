@@ -220,7 +220,8 @@ own by sending a pull request.
 * [@ciaedits](https://twitter.com/ciaedits)
 * [@cmuedits](https://twitter.com/cmuedits)
 * [@congresseditors](https://twitter.com/congresseditors)
-* [@congressedits](https://twitter.com/congressedits)
+* [@congressedits](https://twitter.com/congressedits) **Banned**
+   * [@congressedits on mastodon](https://botsin.space/@congressedits)
 * [@CPDWikiEdits](https://twitter.com/CPDWikiEdits)
 * [@DailEireannEdit](https://twitter.com/DailEireannEdit)
 * [@EagleWikiEdits](https://twitter.com/EagleWikiEdits)
