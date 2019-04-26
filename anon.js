@@ -208,7 +208,7 @@ function sendStatus(account, status, edit) {
                 console.log(err)
               }
             })
-            fs.unlink(screenshot)
+            fs.unlinkSync(screenshot)
           })
         })
       }
