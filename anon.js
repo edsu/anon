@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-const fs            = require('fs')
-const ipv6          = require('ipv6')
-const Twit          = require('twit')
-const async         = require('async')
-const phantom       = require('phantom')
-const minimist      = require('minimist')
-const Mastodon      = require('mastodon')
-const Mustache      = require('mustache')
-const {WikiChanges} = require('wikichanges')
+const fs                   = require('fs')
+const Twit                 = require('twit')
+const async                = require('async')
+const phantom              = require('phantom')
+const minimist             = require('minimist')
+const Mastodon             = require('mastodon')
+const Mustache             = require('mustache')
+const {WikiChanges}        = require('wikichanges')
+const {Address4, Address6} = require('ip-address')
 
 const argv = minimist(process.argv.slice(2), {
   default: {
@@ -19,12 +19,12 @@ const argv = minimist(process.argv.slice(2), {
 
 function address(ip) {
   if (Array.from(ip).includes(':')) {
-    return new ipv6.v6.Address(ip)
+    return new Address6(ip)
   } else {
-    i = new ipv6.v4.Address(ip)
+    i = new Address4(ip)
     const subnetMask = 96 + i.subnetMask
-    ip = `::ffff:${i.toV6Group()}/${subnetMask}`
-    return new ipv6.v6.Address(ip)
+    ip = `::ffff:${i.toGroup6()}/${subnetMask}`
+    return new Address6(ip)
   }
 }
 

@@ -6,7 +6,7 @@
   "version": "0.0.8",
   "dependencies": {
     "async": "2.6.x",
-    "ipv6": "3.x.x",
+    "ip-address": "^5.9.0",
     "mastodon": "^1.1.1",
     "minimist": "1.2.x",
     "mustache": "2.3.0",
