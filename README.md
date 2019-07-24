@@ -250,6 +250,7 @@ own by sending a pull request.
 * [@lc_edits](https://twitter.com/lc_edits)
 * [@LRSwikiedits](https://twitter.com/LRSwikiedits)
 * [@michigan_edits](https://twitter.com/michigan_edits)
+* [@MinistEditor](https://twitter.com/MinistEditor)
 * [@MITedits](https://twitter.com/MITedits)
 * [@monsantoedits](https://twitter.com/monsantoedits)
 * [@NATOedits](https://twitter.com/NATOedits)
