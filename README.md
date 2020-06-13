@@ -228,6 +228,7 @@ own by sending a pull request.
   * [@congressedits on mastodon](https://botsin.space/@congressedits)
 * [@CPDWikiEdits](https://twitter.com/CPDWikiEdits)
 * [@DailEireannEdit](https://twitter.com/DailEireannEdit)
+* [@DoDEdits](https://twitter.com/DoDEdits)
 * [@EagleWikiEdits](https://twitter.com/EagleWikiEdits)
 * [@EduskuntaEdit](https://twitter.com/EduskuntaEdit)
 * [@EstadoEdita](https://twitter.com/EstadoEdita)
