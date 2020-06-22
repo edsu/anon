@@ -5,14 +5,14 @@
   "license": "CC0-1.0",
   "version": "0.0.9",
   "dependencies": {
-    "async": "2.6.x",
-    "ip-address": "^5.9.0",
+    "async": "^2.6.3",
+    "ip-address": "^5.9.4",
     "mastodon": "^1.1.1",
-    "minimist": "1.2.x",
+    "minimist": "^1.2.5",
     "mustache": "2.3.0",
     "phantom": "^4.0.12",
-    "twit": "2.2.x",
-    "wikichanges": ">=0.2.7"
+    "twit": "^2.2.11",
+    "wikichanges": "^0.2.9"
   },
   "devDependencies": {
     "mocha": "latest",
