@@ -30,7 +30,8 @@ To run anon you will need to:
 app you create has read/write permission so it can tweet)
 1. add IP ranges/names to `config.json`
 1. modify status template if desired
-1. `./anon.js`
+1. `./anon.js` (you may want to use our shared instance in Wikimedia Labs, see
+   below)
 
 ### IP Ranges
 
@@ -115,6 +116,13 @@ directory. If you would like to specify the location of the configuration
 file, use the `--config` parameter:
 
     ./anon.js --config test.config
+
+### Running on Wikimedia Labs
+
+We have a shared instance of anon running on [Wikimedia
+Labs](http://tools.wmflabs.org/anon). This is useful once you have a
+configuration that is working and you'd like to have the running instance
+in labs use it.
 
 ## With Docker
 
