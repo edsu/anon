@@ -76,7 +76,7 @@ describe('anon', function() {
       this.timeout(20000)
       const url = 'https://en.wikipedia.org/w/index.php?diff=619968907&oldid=619663144'
       anon.takeScreenshot(url).then(function(path) {
-        fs.stat('package.json', (err, stat) => {
+        fs.stat(path, (err, stat) => {
           assert.isNull(err)
           assert.isTrue(stat.size > 0)
           fs.unlink(path, done)
