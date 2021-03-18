@@ -117,7 +117,7 @@ function isRepeat(edit) {
 async function takeScreenshot(url) {
   const browser = await puppeteer.launch({headless: true, defaultViewport: null})
   const page = await browser.newPage()
-  await page.goto(url, {waitUntil: 'networkidle2'})
+  await page.goto(url, {waitUntil: 'networkidle0'})
   await page.setViewport({width: 1024, height: 768})
 
   const filename = Date.now() + '.png'
@@ -148,6 +148,7 @@ async function sendStatus(account, status, edit) {
 
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
 
+    // get a screenshot of the diff
     const screenshot = await takeScreenshot(edit.url)
 
     // Mastodon
@@ -162,7 +163,11 @@ async function sendStatus(account, status, edit) {
       await mastodon.post(
         'statuses', 
         {'status': status, media_ids: [response.data.id]},
-        err => console.log(`mastodon post failed: ${err}`)
+        err => {
+          if (err) {
+            console.log(`mastodon post failed: ${err}`)
+          }
+        }
       )
     }
 
@@ -196,10 +201,12 @@ async function sendStatus(account, status, edit) {
               console.log(err)
             }
           })
-          fs.unlinkSync(screenshot)
         })
       })
     }
+
+    // screenshot no longer needed
+    fs.unlinkSync(screenshot)
   }
 }
 

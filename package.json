@@ -3,7 +3,7 @@
   "description": "Tweet anonymous edits to Wikipedia from IP ranges.",
   "homepage": "http://github.com/edsu/anon",
   "license": "CC0-1.0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "async": "^2.6.3",
     "ip-address": "^5.9.4",
