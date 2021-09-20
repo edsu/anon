@@ -115,28 +115,39 @@ function isRepeat(edit) {
 }
 
 async function takeScreenshot(url) {
-  const browser = await puppeteer.launch({headless: true, defaultViewport: null})
+
+  // write the screenshot to this file
+  const filename = Date.now() + '.png'
+
+  const browser = await puppeteer.launch({
+    headless: true, 
+    defaultViewport: {
+      width: 1024,
+      height: 768,
+    }
+  })
+
   const page = await browser.newPage()
   await page.goto(url, {waitUntil: 'networkidle0'})
-  await page.setViewport({width: 1024, height: 768})
 
-  const filename = Date.now() + '.png'
-  const selector = 'table.diff.diff-contentalign-left'
-  
-  const rect = await page.evaluate(selector => {
-    const element = document.querySelector(selector)
+  // get the diff portion of the page
+  const box = await page.evaluate(() => {
+    const element = document.querySelector('table.diff.diff-contentalign-left')
+    // need to unpack values because DOMRect object isn't returnable
     const {x, y, width, height} = element.getBoundingClientRect()
-    return {left: x, top: y, width, height, id: element.id}
-  }, selector)
+    return {x, y, width, height}
+  })
 
+  // resize viewport in case the diff element isn't fully visible
+  await page.setViewport({
+    width: 1024,
+    height: parseInt(box.y + box.height + 20)
+  })
+
+  // take the screenshot!
   await page.screenshot({
     path: filename,
-    clip: {
-      x: rect.left,
-      y: rect.top,
-      width: rect.width,
-      height: rect.height
-    }
+    clip: box
   })
 
   await browser.close()
@@ -148,7 +159,8 @@ async function sendStatus(account, status, edit) {
 
   if (!argv.noop && (!account.throttle || !isRepeat(edit))) {
 
-    // get a screenshot of the diff
+    // wait a couple seconds and get a screenshot of the diff
+    await new Promise(r => setTimeout(r, 2000));  
     const screenshot = await takeScreenshot(edit.url)
 
     // Mastodon
