@@ -204,6 +204,7 @@ own by sending a pull request.
 * [@euroedit](https://twitter.com/euroedit)
 * [@FloridaEdits](https://twitter.com/FloridaEdits)
 * [@FTingetWikiEdit](https://twitter.com/FTingetWikiEdit)
+* [@gamingedits](https://twitter.com/gamingeditsbot)
 * [@gccaedits](https://twitter.com/gccaedits)
 * [@goldmanedits](https://twitter.com/goldmanedits)
 * [@gruedits](https://twitter.com/gruedits)
