@@ -120,7 +120,8 @@ async function takeScreenshot(url) {
   const filename = Date.now() + '.png'
 
   const browser = await puppeteer.launch({
-    headless: true, 
+    args: ['--no-sandbox'],
+    headless: true,
     defaultViewport: {
       width: 1024,
       height: 768,
